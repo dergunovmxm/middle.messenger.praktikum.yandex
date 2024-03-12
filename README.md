@@ -39,10 +39,10 @@
 ## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
 
 ## Страницы
-Страница не найдена: https://creative-lollipop-bcce61.netlify.app/pages/notfound/
-Страница ошибки сервера: https://creative-lollipop-bcce61.netlify.app/pages/servererror/
-Страница авторизации: https://creative-lollipop-bcce61.netlify.app/pages/auth/
-Страница регистрации: https://creative-lollipop-bcce61.netlify.app/pages/register/
-Страница профиля: https://creative-lollipop-bcce61.netlify.app/pages/profile/
-Страница Мессенджера (в след спринте): https://creative-lollipop-bcce61.netlify.app/pages/messenger/
+#### Страница не найдена: https://creative-lollipop-bcce61.netlify.app/pages/notfound/
+#### Страница ошибки сервера: https://creative-lollipop-bcce61.netlify.app/pages/servererror/
+#### Страница авторизации: https://creative-lollipop-bcce61.netlify.app/pages/auth/
+#### Страница регистрации: https://creative-lollipop-bcce61.netlify.app/pages/register/
+#### Страница профиля: https://creative-lollipop-bcce61.netlify.app/pages/profile/
+#### Страница Мессенджера (в след спринте): https://creative-lollipop-bcce61.netlify.app/pages/messenger/
 
