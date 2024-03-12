@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		<a href='/pages/Register/index.html'>
 			Регистрация
 		</a>
-		<a href='/pages/Messeger/index.html'>
+		<a href='/pages/Messenger/index.html'>
 			Сообщения
 		</a>
 		<a href='/pages/Profile/index.html'>
