@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Авторизация</title>
+		<link rel="stylesheet" href="./style.scss" />
+		<script type='module' src="../../utils/renderNavbar.js"></script>
+	</head>
+
+	<body>
+		<div id='nav'></div>
+		<div class='auth-container'>
+				<div class='auth-form'>
+					{{> title title='Авторизация'}}
+					{{> input name='login' inputContainer='input-container' type='text' label='Логин' inputClass='auth-form-input' labelClass='auth-form-label'}}
+					{{> input name='password' inputContainer='input-container' type='text' label='Пароль' inputClass='auth-form-input' labelClass='auth-form-label'}}
+					{{> button label='Войти' class='button' containerClass='button-group' }}
+				</div>
+		</div>
+		
+	</body>
+</html>
