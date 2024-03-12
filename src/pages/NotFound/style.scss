@@ -1,0 +1,24 @@
+$base-color: #5B88E5;
+
+body {
+	margin: 0;
+}
+
+#nav {
+	padding: 16px;
+}
+
+.navlink {
+	text-decoration: none;
+	color: $base-color;
+	margin: 0 8px;
+}
+
+.notFound-container {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

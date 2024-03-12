@@ -1,0 +1,91 @@
+$base-color: #5B88E5;
+$primary-color: #c4c4c4;
+
+body {
+	margin: 0;
+}
+
+#nav {
+	margin: 16px;
+}
+
+.navlink {
+	text-decoration: none;
+	color: $base-color;
+	margin: 0 8px
+}
+
+h1{
+	text-align: center;
+	margin: 0;
+}
+
+.settings-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 50px);
+}
+
+.settings-form {
+	box-sizing: border-box;
+	padding: 16px;
+	background-color: $primary-color;
+	width: 480px;
+	border-radius: 20px;
+}
+.image-container {
+	display: flex;
+	justify-content: center;
+}
+.settings-image {
+	height: 180px;
+	width: 180px;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	padding: 8px 48px;
+}
+
+.file-input-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.settings-form-file-input[type=file] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 20px;
+	margin-left: -115px;
+}
+
+.settings-file-label {
+	color: $base-color;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	margin-left: 0;
+	height: 20px;
+	width: 200px;
+}
+
+.settings-form-input {
+	outline: none;
+	height: 32px;
+	border-radius: 10px;
+	border: 1px solid $base-color;
+	padding: 0 8px;
+}
+.settings-form-label {
+	color: $base-color;
+}
+
+.button-group {
+	margin-top: 16px;
+	display: flex;
+	justify-content: center;
+}
