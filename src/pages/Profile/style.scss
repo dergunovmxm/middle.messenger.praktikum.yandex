@@ -1,3 +1,6 @@
+$base-color: #5B88E5;
+$primary-color: #c4c4c4;
+
 body {
 	margin: 0;
 }
@@ -6,18 +9,20 @@ body {
 	padding: 16px;
 }
 
-a {
+.navlink {
 	text-decoration: none;
-	color: #5B88E5;
+	color: $base-color;
 	margin: 0 8px;
 }
 h1{
 	text-align: center;
 }
-img {
+
+.profile-image {
 	height: 360px;
 	width: 360px;
 }
+
 .profile-container {
 	padding: 24px;
 }
@@ -28,7 +33,7 @@ img {
 	align-items: center;
 }
 .profile-main-info {
-	background: #c4c4c4;
+	background: $primary-color;
 	border-radius: 20px;
 
 	display: flex;
@@ -59,7 +64,7 @@ img {
 	padding: 48px;
 
 	border-radius: 20px;
-	background-color: #c4c4c4;
+	background-color: $primary-color;
 }
 
 .input-container  {
@@ -71,6 +76,6 @@ img {
 	height: 32px;
 	width: 240px;
 	border-radius: 10px;
-	border: 1px solid #5B88E5;
+	border: 1px solid $base-color;
 	padding: 0 8px;
 }

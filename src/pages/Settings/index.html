@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройки пользователя</title>
+		<link rel="stylesheet" href="./style.scss" />
+		<script type='module' src="../../utils/renderNavbar.js"></script>
+		<script type='module' src="../../utils/renderImage.js"></script>
+	</head>
+
+	<body>
+		<header id='nav'></header>
+		<main class='settings-container'>	
+			<form class='settings-form'>
+				{{> title title='Настройки пользователя'}}
+				{{> image id='edit_avatar' alt='avatar' imageContainer='image-container' imageClass='settings-image'}}
+				{{> input name='avatar' inputContainer='file-input-container' type='file' inputClass='settings-form-file-input' labelClass='settings-file-label' label='Загрузить аватар'}}
+				{{> input name='first_name' inputContainer='input-container' type='text' label='Имя' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> input name='second_name' inputContainer='input-container' type='text' label='Фамилия' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> input name='display_name' inputContainer='input-container' type='text' label='Имя в чате' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> input name='login' inputContainer='input-container' type='text' label='Логин' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> input name='email' inputContainer='input-container' type='text' label='Эл.почта' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> input name='phone' inputContainer='input-container' type='text' label='Телефон' inputClass='settings-form-input' labelClass='settings-form-label'}}
+				{{> button label='Зарегистрироваться' class='button' containerClass='button-group' }}
+			</form>
+		</main>
+	</body>
+</html>

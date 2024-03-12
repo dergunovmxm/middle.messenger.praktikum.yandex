@@ -10,31 +10,32 @@
 	</head>
 
 	<body>
-		<div id='nav'></div>
-		{{> title title='Профиль'}}
-		<div class='profile-container'>
-
-			<div class='profile-main-info'>
-				{{> image id='avatar' alt='avatar' imageContainer='image-container'}}
-				{{> infoLabel label='Пользователь' key='Имя' infoLabelClass='profile-label'}}
-				{{> infoLabel label='Пользователь' key='Фамилия' infoLabelClass='profile-label'}}
-			</div>
-
-			<div class='profile-adding-info'>
-				<div class='profile-adding-info-container'>
-					{{> infoLabel label='Пользователь' key='Логин' infoLabelClass='profile-label'}}
-					{{> infoLabel label='Пользователь' key='Почта' infoLabelClass='profile-label'}}
-					{{> infoLabel label='Пользователь' key='Телефон' infoLabelClass='profile-label'}}
-					{{> infoLabel label='Пользователь' key='Имя в чате' infoLabelClass='profile-label'}}
+		<header id='nav'></header>
+		<main>
+			{{> title title='Профиль'}}
+			<section class='profile-container'>
+				<div class='profile-main-info'>
+					{{> image id='avatar' alt='avatar' imageContainer='image-container'}}
+					{{> infoLabel label='Пользователь' key='Имя' infoLabelClass='profile-label'}}
+					{{> infoLabel label='Пользователь' key='Фамилия' infoLabelClass='profile-label'}}
 				</div>
-				<div class='profile-adding-info-container'>
-					{{> input name='login' inputContainer='input-container' type='text' label='Старый пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
-					{{> input name='login' inputContainer='input-container' type='text' label='Новый пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
-					{{> input name='login' inputContainer='input-container' type='text' label='Подтвердить пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
-					{{> button label='Сохранить' class='button' containerClass='button-group' }}
+
+				<div class='profile-adding-info'>
+					<div class='profile-adding-info-container'>
+						{{> infoLabel label='Пользователь' key='Логин' infoLabelClass='profile-label'}}
+						{{> infoLabel label='Пользователь' key='Почта' infoLabelClass='profile-label'}}
+						{{> infoLabel label='Пользователь' key='Телефон' infoLabelClass='profile-label'}}
+						{{> infoLabel label='Пользователь' key='Имя в чате' infoLabelClass='profile-label'}}
+					</div>
+
+					<form class='profile-adding-info-container'>
+						{{> input name='oldPassword' inputContainer='input-container' type='text' label='Старый пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
+						{{> input name='newPassword' inputContainer='input-container' type='text' label='Новый пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
+						{{> input name='confirmPassword' inputContainer='input-container' type='text' label='Подтвердить пароль' inputClass='profile-form-input' labelClass='profile-form-label'}}
+						{{> button label='Сохранить' class='button' containerClass='button-group' }}
+					</form>
 				</div>
-			</div>
-		</div>
-		
+			</section>
+		</main>
 	</body>
 </html>

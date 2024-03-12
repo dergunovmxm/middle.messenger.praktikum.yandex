@@ -15,6 +15,7 @@ export default defineConfig({
 				register: resolve(__dirname, 'src/pages/Register/index.html'),
 				notFound: resolve(__dirname, 'src/pages/NotFound/index.html'),
 				serverError: resolve(__dirname, 'src/pages/ServerError/index.html'),
+				settings: resolve(__dirname, 'src/pages/Settings/index.html'),
 			}
 	}
 	},

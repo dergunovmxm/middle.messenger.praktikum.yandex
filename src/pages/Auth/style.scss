@@ -1,3 +1,6 @@
+$base-color: #5B88E5;
+$primary-color: #c4c4c4;
+
 body {
 	margin: 0;
 }
@@ -6,9 +9,9 @@ body {
 	padding: 16px;
 }
 
-a {
+.navlink {
 	text-decoration: none;
-	color: #5B88E5;
+	color: $base-color;
 	margin: 0 8px
 }
 
@@ -25,7 +28,7 @@ h1 {
 
 .auth-form {
 	margin: 24px;
-	background-color: #c4c4c4;
+	background-color: $primary-color;
 	height: 300px;
 	width: 480px;
 	border-radius: 20px;
@@ -41,11 +44,11 @@ h1 {
 	outline: none;
 	height: 32px;
 	border-radius: 10px;
-	border: 1px solid #5B88E5;
+	border: 1px solid $base-color;
 	padding: 0 8px;
 }
 .auth-form-label {
-	color: #5B88E5;
+	color: $base-color;
 }
 .button-group {
 	margin-top: 16px;

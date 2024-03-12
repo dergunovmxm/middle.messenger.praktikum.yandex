@@ -1,3 +1,5 @@
+$base-color: #5B88E5;
+
 body {
 	margin: 0;
 }
@@ -6,9 +8,9 @@ body {
 	padding: 16px;
 }
 
-a {
+.navlink {
 	text-decoration: none;
-	color: #5B88E5;
+	color: $base-color;
 	margin: 0 8px;
 }
 

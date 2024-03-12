@@ -9,18 +9,18 @@
 	</head>
 
 	<body>
-		<div id='nav'></div>
-		<div class='register-container'>
-			<div class='register-form'>
+		<header id='nav'></header>
+		<main class='register-container'>
+			<form class='register-form'>
 				{{> title title='Регистрация'}}
-				{{> input name='firstname' inputContainer='input-container' type='text' label='Имя' inputClass='register-form-input' labelClass='register-form-label'}}
-				{{> input name='lastname' inputContainer='input-container' type='text' label='Фамилия' inputClass='register-form-input' labelClass='register-form-label'}}
+				{{> input name='first_name' inputContainer='input-container' type='text' label='Имя' inputClass='register-form-input' labelClass='register-form-label'}}
+				{{> input name='second_name' inputContainer='input-container' type='text' label='Фамилия' inputClass='register-form-input' labelClass='register-form-label'}}
 				{{> input name='login' inputContainer='input-container' type='text' label='Логин' inputClass='register-form-input' labelClass='register-form-label'}}
 				{{> input name='email' inputContainer='input-container' type='text' label='Эл.почта' inputClass='register-form-input' labelClass='register-form-label'}}
 				{{> input name='password' inputContainer='input-container' type='text' label='Пароль' inputClass='register-form-input' labelClass='register-form-label'}}
 				{{> input name='phone' inputContainer='input-container' type='text' label='Телефон' inputClass='register-form-input' labelClass='register-form-label'}}
 				{{> button label='Зарегистрироваться' class='button' containerClass='button-group' }}
-			</div>
-		</div>
+			</form>
+		</main>
 	</body>
 </html>
