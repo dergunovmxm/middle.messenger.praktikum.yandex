@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.getElementById('nav')
+  const navbar: HTMLElement = document.getElementById('nav') as HTMLElement
 	navbar.innerHTML = `
 		<nav> 
 		<a href='/pages/NotFound/index.html' class='navlink'>
