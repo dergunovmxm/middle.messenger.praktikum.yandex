@@ -1,9 +1,22 @@
 {
-	"compilerOptions": {
-		"noImplicitAny": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"sourceMap": true,
-		"strictNullChecks": true
-	},
+	"ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "moduleTypes": {
+      "src/**/*.ts": "cjs"
+    }
+  },
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2017",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": false,
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
