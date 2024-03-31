@@ -1,3 +1,7 @@
+import { IOptions, IRequest } from "../interfaces";
+
+type Send = Document | XMLHttpRequestBodyInit | null | undefined
+
 const METHODS = {
 	GET: 'GET',
 	POST: 'POST',
@@ -14,28 +18,18 @@ function queryStringify(data: { [key: string]: { toString: () => string } }) {
 		.map((key) => `${key}=${data[key].toString()}`)
 		.join('&')}`
 }
-
-interface IOptions {
-	timeout?: number,
-	headers?: Object,
-	data?: Object,
-	method?: string
-}
-interface IRequest {
-	(url: string, options: IOptions): Promise<unknown>
-}
-
 class HTTPTransport {
-	get = (url: string, options: IOptions = {}) => {
+	
+	get: IRequest = (url: string, options: IOptions = {}) => {
 		return this.request(url, { ...options, method: METHODS.GET }, options.timeout)
 	}
-	post = (url: string, options: IOptions = {}) => {
+	post: IRequest = (url: string, options: IOptions = {}) => {
 		return this.request(url, { ...options, method: METHODS.POST }, options.timeout)
 	}
-	put = (url: string, options: IOptions = {}) => {
+	put: IRequest = (url: string, options: IOptions = {}) => {
 		return this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
 	}
-	delete = (url: string, options: IOptions = {}) => {
+	delete: IRequest = (url: string, options: IOptions = {}) => {
 		return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
 	}
 
@@ -66,7 +60,7 @@ class HTTPTransport {
 			if (method === METHODS.GET || !data) {
 				xhr.send()
 			} else {
-				xhr.send(data as Document | XMLHttpRequestBodyInit | null | undefined) 
+				xhr.send(data as Send) 
 			}
 		})
 	}
