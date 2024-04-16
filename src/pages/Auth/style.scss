@@ -1,6 +1,21 @@
 $base-color: #5B88E5;
 $primary-color: #c4c4c4;
+$ligth: #ffffff;
 
+
+%input-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 32px;
+	box-sizing: border-box;
+	label {
+		color: $base-color;
+	}
+	div {
+		width: 340px;
+	}
+}
 body {
 	margin: 0;
 }
@@ -34,24 +49,66 @@ h1 {
 	border-radius: 20px;
 }
 
-.input-container {
+.login-container {
+	@extend %input-item;
+}
+
+.password-container {
+	@extend %input-item;
+}
+
+.link-container {
+	padding: 16px 64px;
 	display: flex;
-	flex-direction: column;
-	padding: 8px 48px;
+	justify-content: center;
 }
 
 .auth-form-input {
+	width: calc(100% - 32px);
 	outline: none;
 	height: 32px;
 	border-radius: 10px;
 	border: 1px solid $base-color;
-	padding: 0 8px;
+	padding: 0 8px;;
 }
-.auth-form-label {
-	color: $base-color;
-}
+
 .button-group {
 	margin-top: 16px;
 	display: flex;
 	justify-content: center;
+}
+
+.button-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	div {
+		background-color: $base-color;
+		width: 120px;
+		height: 40px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+	}	
+}
+
+.auth-button {
+	text-decoration: none;
+	color: $ligth;
+	margin: 0 8px;
+}
+
+.link-container {
+	div {
+		cursor: pointer;
+		a{
+			text-decoration: none;
+			color: $base-color;
+			margin: 0 8px;
+			pointer-events: none
+		}
+		
+	}	
 }

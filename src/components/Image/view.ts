@@ -1,0 +1,1 @@
+export const view = `<img src='{{src}}' alt='{{alt}}' class='{{className}}'/>`

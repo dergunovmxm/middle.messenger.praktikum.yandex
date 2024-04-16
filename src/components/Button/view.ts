@@ -1,0 +1,1 @@
+export const view = `<button type='{{type}}' class='{{buttonClass}}' id='{{id}}'>{{button}}</button>`

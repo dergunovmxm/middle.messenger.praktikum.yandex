@@ -7,10 +7,9 @@ export const nameValidation = (event: { target: HTMLInputElement }) => {
 	}
 }
 
-export const loginValidation = (event: { target: HTMLInputElement }) => {
+export const loginValidation = (event: {target: HTMLInputElement}) => {
 	const loginValue = event.target.value.trim()
 	const regExp = /^[a-zA-Z0-9_-]{3,20}$/;
-
 	if(!regExp.test(loginValue)) {
 		alert('Введен некорректный логин. Правила: от 3 до 20 символов, латиница, может содержать цифры, но не состоять из них, без пробелов, без спецсимволов (допустимы дефис и нижнее подчёркивание)')
 	}
@@ -46,7 +45,7 @@ export const phoneValidation = (event: { target: HTMLInputElement }) => {
 export const messageValidation = (event: { target: HTMLInputElement }) => {
 	const messageValue = event.target.value.trim()
 	
-	if(messageValue.length === 0) {
+	if(messageValue === '') {
 		alert('Сообщение не должно быть пустым')
 	}
 }

@@ -1,5 +1,27 @@
 $base-color: #5B88E5;
 $primary-color: #c4c4c4;
+$ligth: #ffffff;
+
+%input-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 32px;
+	box-sizing: border-box;
+	label {
+		color: $base-color;
+		width: 200px
+	}
+	div {
+		width: 340px;
+	}
+}
+
+%flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
 body {
 	margin: 0;
@@ -61,7 +83,7 @@ h1{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 48px;
+	padding: 32px;
 
 	border-radius: 20px;
 	background-color: $primary-color;
@@ -78,4 +100,55 @@ h1{
 	border-radius: 10px;
 	border: 1px solid $base-color;
 	padding: 0 8px;
+}
+.firtname {
+	label {
+		color: $ligth;
+	}
+	
+}
+.secondname {
+	label {
+		color: $ligth;
+	}
+}
+
+.login {
+	label {
+		color: $ligth;
+	}
+}
+
+.email {
+	label {
+		color: $ligth;
+	}
+}
+
+.phone {
+	label {
+		color: $ligth;
+	}
+}
+
+.chatName {
+	label {
+		color: $ligth;
+	}
+}
+
+.old-password-container{
+
+	@extend %input-item;
+}
+
+
+.new-password-container{
+	
+	@extend %input-item;
+}
+
+
+.confirm-password-container{
+	@extend %input-item;
 }

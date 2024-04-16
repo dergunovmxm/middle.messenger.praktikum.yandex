@@ -1,6 +1,8 @@
 export interface IInput  {
 	name: string,
-	inputContainer: string,
 	type: string,
 	inputClass: string,
+	events?: Object
+	eventInterception?: boolean
+	placeholder?: string
 }

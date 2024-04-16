@@ -6,7 +6,7 @@ import { IInput } from "../../interfaces";
 export class Input<T extends IInput> extends Block<T> {
 
 	constructor(props: T) {
-		super('input', props);
+		super('div', props);
 	}
 
 	render() {
@@ -14,7 +14,8 @@ export class Input<T extends IInput> extends Block<T> {
 		return template({
 			name: this.props.name,
 			inputClass: this.props.inputClass,
-			type: this.props.type
+			type: this.props.type,
+			placeholder: this.props.placeholder
 		});
 	}
 }

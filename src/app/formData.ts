@@ -1,6 +1,7 @@
 const form = document.querySelector('form') as HTMLFormElement
 
-export const formData = () => {
+export const formData = (e: Event) => {
+	e.preventDefault()
 	if (form) {
 		const formData = new FormData(form)
 		const data = {} as { [key: string]: unknown }

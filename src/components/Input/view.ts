@@ -1,4 +1,1 @@
-// export const view =
-// 	`<input class='{{inputClass}}' type='{{type}}' name='{{name}}' />	`
-
-export const view = '{{test}}'
+export const view = `<input class='{{inputClass}}' placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' />	`
