@@ -1,6 +1,6 @@
-import { IOptions } from "./IOptoins";
+import { IOptions } from './IOptoins';
 
 export interface IRequest {
-	(url: string, 
-		options: IOptions): Promise<unknown>
+  (url: string,
+    options: IOptions): Promise<unknown>
 }

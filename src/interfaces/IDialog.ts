@@ -1,4 +1,4 @@
 export interface IDialog {
-	text: string
-	className: string
+  text: string
+  className: string
 }

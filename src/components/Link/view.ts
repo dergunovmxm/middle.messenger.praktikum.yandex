@@ -1,1 +1,1 @@
-export const view = `<a href='{{href}}' class='{{linkClass}}' id='{{id}}'>{{link}}</a>`
+export const view = '<a href=\'{{href}}\' class=\'{{linkClass}}\' id=\'{{id}}\'>{{link}}</a>';

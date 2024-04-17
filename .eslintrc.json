@@ -1,19 +1,14 @@
 {
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-  ],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-	"parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "import/prefer-default-export": "off",
-    "no-alert": "off",
-    "no-useless-escape": "off",
-    "max-len": "off",
-    "array-callback-return": "off",
-    "no-underscore-dangle": "off",
+    "extends": ["airbnb", "airbnb-typescript"],
+    "parserOptions": {
+        "project": ["./tsconfig.json"]
+    },
+    "rules": {
+        "import/prefer-default-export": "off",
+        "no-alert": "off",
+        "no-useless-escape": "off",
+        "max-len": "off",
+        "array-callback-return": "off",
+        "no-underscore-dangle": "off"
     }
 }

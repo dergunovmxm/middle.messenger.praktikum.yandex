@@ -1,154 +1,149 @@
-$base-color: #5B88E5;
+$base-color: #5b88e5;
 $primary-color: #c4c4c4;
-$ligth: #ffffff;
+$ligth: #fff;
 
 %input-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 8px 32px;
-	box-sizing: border-box;
-	label {
-		color: $base-color;
-		width: 200px
-	}
-	div {
-		width: 340px;
-	}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 32px;
+    box-sizing: border-box;
+    label {
+        color: $base-color;
+        width: 200px;
+    }
+    div {
+        width: 340px;
+    }
 }
 
 %flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 body {
-	margin: 0;
+    margin: 0;
 }
 
 #nav {
-	padding: 16px;
+    padding: 16px;
 }
 
 .navlink {
-	text-decoration: none;
-	color: $base-color;
-	margin: 0 8px;
+    text-decoration: none;
+    color: $base-color;
+    margin: 0 8px;
 }
-h1{
-	text-align: center;
+h1 {
+    text-align: center;
 }
 
 .profile-image {
-	height: 360px;
-	width: 360px;
+    height: 360px;
+    width: 360px;
 }
 
 .profile-container {
-	padding: 24px;
+    padding: 24px;
 }
 
 .image-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .profile-main-info {
-	background: $primary-color;
-	border-radius: 20px;
+    background: $primary-color;
+    border-radius: 20px;
 
-	display: flex;
-	flex-direction: column;
-	padding: 32px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
 }
 
-.profile-container{
-	display: grid; 
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
-	gap: 96px;
+.profile-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
 
-	height: 560px;
+    height: 560px;
 }
 
 .profile-adding-info {
-	display: grid; 
-	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr;
-	gap: 36px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 36px;
 }
 
 .profile-adding-info-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
 
-	border-radius: 20px;
-	background-color: $primary-color;
+    border-radius: 20px;
+    background-color: $primary-color;
 }
 
-.input-container  {
-	display: flex;
-	justify-content: space-between;
+.input-container {
+    display: flex;
+    justify-content: space-between;
 }
 .profile-form-input {
-	outline: none;
-	height: 32px;
-	width: 240px;
-	border-radius: 10px;
-	border: 1px solid $base-color;
-	padding: 0 8px;
+    outline: none;
+    height: 32px;
+    width: 240px;
+    border-radius: 10px;
+    border: 1px solid $base-color;
+    padding: 0 8px;
 }
 .firtname {
-	label {
-		color: $ligth;
-	}
-	
+    label {
+        color: $ligth;
+    }
 }
 .secondname {
-	label {
-		color: $ligth;
-	}
+    label {
+        color: $ligth;
+    }
 }
 
 .login {
-	label {
-		color: $ligth;
-	}
+    label {
+        color: $ligth;
+    }
 }
 
 .email {
-	label {
-		color: $ligth;
-	}
+    label {
+        color: $ligth;
+    }
 }
 
 .phone {
-	label {
-		color: $ligth;
-	}
+    label {
+        color: $ligth;
+    }
 }
 
 .chatName {
-	label {
-		color: $ligth;
-	}
+    label {
+        color: $ligth;
+    }
 }
 
-.old-password-container{
-
-	@extend %input-item;
+.old-password-container {
+    @extend %input-item;
 }
 
-
-.new-password-container{
-	
-	@extend %input-item;
+.new-password-container {
+    @extend %input-item;
 }
 
-
-.confirm-password-container{
-	@extend %input-item;
+.confirm-password-container {
+    @extend %input-item;
 }

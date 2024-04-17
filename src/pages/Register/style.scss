@@ -1,131 +1,128 @@
-$base-color: #5B88E5;
+$base-color: #5b88e5;
 $primary-color: #c4c4c4;
-$ligth: #ffffff;
+$ligth: #fff;
 
-%input-container{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 8px 32px;
-	box-sizing: border-box;
-	label {
-		color: $base-color;
-	}
-	div {
-		width: 340px;
-	}
+%input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 32px;
+    box-sizing: border-box;
+    label {
+        color: $base-color;
+    }
+    div {
+        width: 340px;
+    }
 }
 
 body {
-	margin: 0;
+    margin: 0;
 }
 
 #nav {
-	padding: 16px;
+    padding: 16px;
 }
 
 .navlink {
-	text-decoration: none;
-	color: $base-color;
-	margin: 0 8px
+    text-decoration: none;
+    color: $base-color;
+    margin: 0 8px;
 }
 
-h1{
-	text-align: center;
+h1 {
+    text-align: center;
 }
 
 .register-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
 }
 
-
 .register-form {
-	margin: 24px;
-	background-color: $primary-color;
-	height: 560px;
-	width: 480px;
-	border-radius: 20px;
+    margin: 24px;
+    background-color: $primary-color;
+    height: 560px;
+    width: 480px;
+    border-radius: 20px;
 }
 
 .firstname-container {
-	@extend %input-container
+    @extend %input-container;
 }
 
 .lastname-container {
-	@extend %input-container
+    @extend %input-container;
 }
 
 .login-container {
-	@extend %input-container
+    @extend %input-container;
 }
 
 .email-container {
-	@extend %input-container
+    @extend %input-container;
 }
 
-.password-container{
-	@extend %input-container
+.password-container {
+    @extend %input-container;
 }
 
-.phone-container{
-	@extend %input-container
+.phone-container {
+    @extend %input-container;
 }
 
 .register-form-input {
-	width: calc(100% - 32px);
-	outline: none;
-	height: 32px;
-	border-radius: 10px;
-	border: 1px solid $base-color;
-	padding: 0 8px;
+    width: calc(100% - 32px);
+    outline: none;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid $base-color;
+    padding: 0 8px;
 }
 .register-form-label {
-	color: $base-color;
+    color: $base-color;
 }
 .button-group {
-	margin-top: 16px;
-	display: flex;
-	justify-content: center;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
 }
 
 .register-button {
-	text-decoration: none;
-	color: $ligth;
-	margin: 0 8px;
+    text-decoration: none;
+    color: $ligth;
+    margin: 0 8px;
 }
 
 .button-container {
-	margin-top: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	div {
-		background-color: $base-color;
-		width: 120px;
-		height: 40px;
-		border-radius: 10px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		
-	}	
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+        background-color: $base-color;
+        width: 120px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .link-container {
-	margin-top: 16px;
-	display: flex;
-	justify-content: center;
-	div {
-		cursor: pointer;
-		a{
-			text-decoration: none;
-			color: $base-color;
-			margin: 0 8px;
-			pointer-events: none
-		}
-		
-	}	
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    div {
+        cursor: pointer;
+        a {
+            text-decoration: none;
+            color: $base-color;
+            margin: 0 8px;
+            pointer-events: none;
+        }
+    }
 }

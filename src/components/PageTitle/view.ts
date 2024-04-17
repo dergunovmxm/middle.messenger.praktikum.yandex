@@ -1,1 +1,1 @@
-export const view = '{{title}}'
+export const view = '{{title}}';
