@@ -125,7 +125,7 @@ const confirmPassword = new Input<IInput>({
 });
 
 render<ITitle>('.profile-title', title);
-render<IImage>('.image-container', avatar);
+
 render<ILabel>('.firtname', firstNameKey);
 render<ILabel>('.secondname', secondNameKey);
 render<ILabel>('.firtname', firstname);

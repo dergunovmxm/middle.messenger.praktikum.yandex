@@ -139,5 +139,4 @@ render<ILabel>('.password-container', passwordLabel);
 render<IInput>('.password-container', password);
 render<ILabel>('.phone-container', phoneLabel);
 render<IInput>('.phone-container', phone);
-render<IImage>('.image-container', avatar);
 render<ILink>('.button-container', button);
