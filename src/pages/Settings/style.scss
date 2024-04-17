@@ -8,14 +8,17 @@ $ligth: #fff;
     justify-content: space-between;
     padding: 8px 32px;
     box-sizing: border-box;
-    label {
+    
+		label {
         color: $base-color;
         width: 100px;
     }
-    div {
+    
+		div {
         width: 340px;
     }
 }
+
 body {
     margin: 0;
 }
@@ -49,10 +52,12 @@ h1 {
     width: 480px;
     border-radius: 20px;
 }
+
 .image-container {
     display: flex;
     justify-content: center;
-    img {
+
+		img {
         height: 180px;
         width: 180px;
     }
@@ -96,8 +101,9 @@ h1 {
     padding: 0 8px;
     width: calc(100% - 32px);
 }
+
 .settings-form-label {
-    label {
+	label {
         color: $base-color;
         width: 70px;
     }
@@ -108,8 +114,9 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    div {
-        a {
+
+		div {
+			a {
             background-color: $base-color;
             width: 120px;
             height: 40px;

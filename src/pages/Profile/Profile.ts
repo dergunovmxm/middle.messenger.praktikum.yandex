@@ -1,19 +1,13 @@
 import {
-  Title, Image, Label, Input,
+  Title, Label, Input,
 } from '../../components';
 import { render } from '../../app';
 import {
-  IImage, IInput, ILabel, ITitle,
+   IInput, ILabel, ITitle,
 } from '../../interfaces';
 
 const title = new Title<ITitle>({
   title: 'Профиль',
-});
-
-const avatar = new Image<IImage>({
-  src: '../../assets/avatar.svg',
-  alt: 'Аватар',
-  className: 'profile-avatar',
 });
 
 const firstNameKey = new Label<ILabel>({

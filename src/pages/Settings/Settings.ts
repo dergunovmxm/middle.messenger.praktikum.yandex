@@ -1,9 +1,9 @@
 import {
-  Input, Label, Title, Image, Link,
+  Input, Label, Title, Link,
 } from '../../components';
 import { render } from '../../app';
 import {
-  IImage, IInput, ILabel, ILink, ITitle,
+  IInput, ILabel, ILink, ITitle,
 } from '../../interfaces';
 import {
   emailValidation, loginValidation, nameValidation, passwordValidation,
@@ -12,12 +12,6 @@ import { formData } from '../../app/formData';
 
 const title = new Title<ITitle>({
   title: 'Настройки пользователя',
-});
-
-const avatar = new Image<IImage>({
-  src: '../../assets/avatar.svg',
-  alt: 'Аватар',
-  className: 'image-container',
 });
 
 const firstNameLabel = new Label<ILabel>({
