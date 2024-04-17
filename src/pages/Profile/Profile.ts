@@ -3,7 +3,7 @@ import {
 } from '../../components';
 import { render } from '../../app';
 import {
-   IInput, ILabel, ITitle,
+  IInput, ILabel, ITitle,
 } from '../../interfaces';
 
 const title = new Title<ITitle>({

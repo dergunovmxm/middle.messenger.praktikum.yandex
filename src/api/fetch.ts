@@ -27,6 +27,7 @@ export class HTTPTransport {
 
   delete: IRequest = (url: string, options: IOptions = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
+  // eslint-disable-next-line class-methods-use-this
   request = (url: string, options: { method: string; timeout?: number | undefined; data?: Object; headers?: Object }, timeout = 5000) => {
     const { method, data, headers } = options;
 

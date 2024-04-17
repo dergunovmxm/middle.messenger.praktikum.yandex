@@ -127,6 +127,7 @@ export class Block<T extends object> {
       },
       set: (target: T, prop: string, value: unknown) => {
         if (prop in target) {
+          // eslint-disable-next-line no-param-reassign
           (target as { [key: string]: unknown })[prop as string] = value;
           this.eventBus().emit(Block.EVENTS.FLOW_CDU, { oldProps: target, newProps: target });
         } else {
@@ -141,6 +142,7 @@ export class Block<T extends object> {
     } as ProxyHandler<T>);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _createDocumentElement(tagName: string) {
     return document.createElement(tagName);
   }

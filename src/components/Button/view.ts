@@ -1,1 +1,1 @@
-export const view = '<button type=\'{{type}}\' class=\'{{buttonClass}}\' id=\'{{id}}\'>{{button}}</button>';
+export const view = "<button type='{{type}}' class='{{buttonClass}}' id='{{id}}'>{{button}}</button>";
