@@ -17,6 +17,6 @@
         "strictNullChecks": true,
         "sourceMap": true
     },
-    "include": ["src", "svg.d.ts",],
+    "include": ["src", "**/*.ts"],
     "exclude": ["node_modules"]
 }
