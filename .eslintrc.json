@@ -6,6 +6,9 @@
         "plugin:import/warnings",
         "plugin:import/typescript"
     ],
+    "parserOptions": {
+        "project": ["tsconfig.json"]
+    },
     "plugins": ["@typescript-eslint", "import"],
     "rules": {
         "import/prefer-default-export": "off",
