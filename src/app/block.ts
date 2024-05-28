@@ -1,6 +1,9 @@
 import { EventBus } from './eventBus';
 
 export class Block<T extends object> {
+  renderTo(root: Element) {
+    throw new Error("Method not implemented.");
+  }
   static EVENTS: { [key: string]: string } = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -18,6 +21,7 @@ export class Block<T extends object> {
   props: T;
 
   eventBus: () => EventBus<T>;
+  // hide: () => void;
 
   constructor(tagName = 'div', props: T = {} as T) {
     const eventBus = new EventBus();
@@ -73,7 +77,7 @@ export class Block<T extends object> {
     this.componentDidMount();
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -113,7 +117,7 @@ export class Block<T extends object> {
     this.dispatchComponentDidMount();
   }
 
-  render() {}
+  render() { }
 
   getContent() {
     return this.element;

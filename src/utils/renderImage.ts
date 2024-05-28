@@ -1,4 +1,4 @@
-const imgUrl = require('../assets/avatar.svg').default;
+import imgUrl from '../assets/avatar.svg'
 
 const imgElement = document.querySelector('img');
 if (imgElement) {

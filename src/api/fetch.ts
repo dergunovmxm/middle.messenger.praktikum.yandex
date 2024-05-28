@@ -33,19 +33,30 @@ export class HTTPTransport {
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
+      let isApplicationJson = false;
       const newUrl = method === METHODS.GET ? `${url}${queryStringify(data as { [key: string]: { toString: () => string } })}` : url;
 
+      xhr.withCredentials = true;
       xhr.open(method, newUrl);
       xhr.timeout = timeout;
 
       if (headers) {
         Object.entries(headers).forEach(([key, value]) => {
           xhr.setRequestHeader(key, value as string);
+          if (value.includes('application/json')) {
+            isApplicationJson = true
+          }
         });
       }
 
       xhr.onload = () => {
-        resolve(xhr);
+        if (xhr.status > 299) {
+          reject(xhr.responseText);
+        } else if (/^\s*[{[]/.test(xhr.response)) {
+          resolve(JSON.parse(xhr.response));
+        } else {
+          resolve(xhr.response);
+        }
       };
 
       xhr.onabort = reject;
@@ -54,9 +65,14 @@ export class HTTPTransport {
 
       if (method === METHODS.GET || !data) {
         xhr.send();
-      } else {
+      } else if (isApplicationJson) {
+        xhr.send(JSON.stringify(data) as Send);
+      }
+      else {
         xhr.send(data as Send);
       }
     });
   };
 }
+
+export const service = new HTTPTransport();

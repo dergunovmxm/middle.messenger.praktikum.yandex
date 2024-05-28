@@ -8,144 +8,182 @@ import {
 import {
   emailValidation, loginValidation, nameValidation, passwordValidation,
 } from '../../app/validation';
-import { formData } from '../../app/formData';
+import { hideContent } from '../../utils/hideContent';
+import { view } from './view';
+import { Button } from '../../components/Button';
+import { goTo } from '../../app/router';
+import { IButton } from '../../interfaces/IButton';
+import { renderAuthNavbar } from '../../utils/renderNavbar';
+import { useRegister } from '../../hooks/useRegister';
+export const Register = () => {
+  const root = document.querySelector('#root');
+  const { signup } = useRegister();
+  if (root) {
+    root.insertAdjacentHTML('afterbegin', view);
+  }
 
-const title = new Title<ITitle>({
-  title: 'Регистрация',
-});
+  const navbar = renderAuthNavbar();
 
-const firstNameLabel = new Label<ILabel>({
-  name: 'first_name',
-  labelClass: 'register-form-label',
-  label: 'Имя',
-});
+  const title = new Title<ITitle>({
+    title: 'Регистрация',
+  });
 
-const firstName = new Input<IInput>({
-  type: 'text',
-  name: 'first_name',
-  inputClass: 'register-form-input',
-  events: {
-    blur: nameValidation,
-    submit: nameValidation,
-  },
-  eventInterception: true,
-});
+  const firstNameLabel = new Label<ILabel>({
+    name: 'first_name',
+    labelClass: 'register-form-label',
+    label: 'Имя',
+  });
 
-const lastNameLabel = new Label<ILabel>({
-  name: 'second_name',
-  labelClass: 'register-form-label',
-  label: 'Фамилия',
-});
+  const firstName = new Input<IInput>({
+    type: 'text',
+    name: 'first_name',
+    inputClass: 'register-form-input',
+    events: {
+      blur: nameValidation,
+      submit: nameValidation,
+    },
+    eventInterception: true,
+  });
 
-const lastName = new Input<IInput>({
-  type: 'text',
-  name: 'second_name',
-  inputClass: 'register-form-input',
-  events: {
-    blur: nameValidation,
-    submit: nameValidation,
-  },
-  eventInterception: true,
-});
+  const lastNameLabel = new Label<ILabel>({
+    name: 'second_name',
+    labelClass: 'register-form-label',
+    label: 'Фамилия',
+  });
 
-const loginLabel = new Label<ILabel>({
-  name: 'login',
-  labelClass: 'register-form-label',
-  label: 'Логин',
-});
+  const lastName = new Input<IInput>({
+    type: 'text',
+    name: 'second_name',
+    inputClass: 'register-form-input',
+    events: {
+      blur: nameValidation,
+      submit: nameValidation,
+    },
+    eventInterception: true,
+  });
 
-const login = new Input<IInput>({
-  type: 'text',
-  name: 'login',
-  inputClass: 'register-form-input',
-  events: {
-    blur: loginValidation,
-    submit: loginValidation,
-  },
-  eventInterception: true,
-});
+  const loginLabel = new Label<ILabel>({
+    name: 'login',
+    labelClass: 'register-form-label',
+    label: 'Логин',
+  });
 
-const emailLabel = new Label<ILabel>({
-  name: 'email',
-  labelClass: 'register-form-label',
-  label: 'Эл.почта',
-});
+  const login = new Input<IInput>({
+    type: 'text',
+    name: 'login',
+    inputClass: 'register-form-input',
+    events: {
+      blur: loginValidation,
+      submit: loginValidation,
+    },
+    eventInterception: true,
+  });
 
-const email = new Input<IInput>({
-  type: 'text',
-  name: 'email',
-  inputClass: 'register-form-input',
-  events: {
-    blur: emailValidation,
-    submit: emailValidation,
-  },
-  eventInterception: true,
-});
+  const emailLabel = new Label<ILabel>({
+    name: 'email',
+    labelClass: 'register-form-label',
+    label: 'Эл.почта',
+  });
 
-const passwordLabel = new Label<ILabel>({
-  name: 'password',
-  labelClass: 'register-form-label',
-  label: 'Пароль',
-});
+  const email = new Input<IInput>({
+    type: 'text',
+    name: 'email',
+    inputClass: 'register-form-input',
+    events: {
+      blur: emailValidation,
+      submit: emailValidation,
+    },
+    eventInterception: true,
+  });
 
-const password = new Input<IInput>({
-  type: 'password',
-  name: 'password',
-  inputClass: 'register-form-input',
-  events: {
-    blur: passwordValidation,
-    submit: passwordValidation,
-  },
-  eventInterception: true,
-});
+  const passwordLabel = new Label<ILabel>({
+    name: 'password',
+    labelClass: 'register-form-label',
+    label: 'Пароль',
+  });
 
-const phoneLabel = new Label<ILabel>({
-  name: 'phone',
-  labelClass: 'register-form-label',
-  label: 'Телефон',
-});
+  const password = new Input<IInput>({
+    type: 'password',
+    name: 'password',
+    inputClass: 'register-form-input',
+    events: {
+      blur: passwordValidation,
+      submit: passwordValidation,
+    },
+    eventInterception: true,
+  });
 
-const phone = new Input<IInput>({
-  type: 'phone',
-  name: 'phone',
-  inputClass: 'register-form-input',
-});
+  const phoneLabel = new Label<ILabel>({
+    name: 'phone',
+    labelClass: 'register-form-label',
+    label: 'Телефон',
+  });
 
-const toAuth = new Link<ILink>({
-  id: 'auth',
-  link: 'Войти',
-  href: '../Auth/index.html',
-});
+  const phone = new Input<IInput>({
+    type: 'phone',
+    name: 'phone',
+    inputClass: 'register-form-input',
+  });
 
-const toAuthLabel = new Label<ILabel>({
-  name: 'to-auth',
-  labelClass: 'register-form-label',
-  label: 'Уже есть аккаунт?',
-});
+  const toAuth = new Button<IButton>({
+    id: 'toAuth',
+    button: 'Войти',
+    buttonClass: 'to-auth-button',
+    type: 'button',
+    events: {
+      click: () => goTo('/sign-in'),
+    }
+  })
 
-const register = new Link<ILink>({
-  id: 'register',
-  link: 'Регистранция',
-  // href: "../Auth/index.html",
-  linkClass: 'register-button',
-  events: {
-    click: formData,
-  },
-});
+  const toAuthLabel = new Label<ILabel>({
+    name: 'to-auth',
+    labelClass: 'register-form-label',
+    label: 'Уже есть аккаунт?',
+  });
 
-render('.title-container', title);
-render('.firstname-container', firstNameLabel);
-render('.firstname-container', firstName);
-render('.lastname-container', lastNameLabel);
-render('.lastname-container', lastName);
-render('.login-container', loginLabel);
-render('.login-container', login);
-render('.email-container', emailLabel);
-render('.email-container', email);
-render('.password-container', passwordLabel);
-render('.password-container', password);
-render('.phone-container', phoneLabel);
-render('.phone-container', phone);
-render('.link-container', toAuthLabel);
-render('.link-container', toAuth);
-render('.button-container', register);
+  const testUser = {
+    first_name: "Максим",
+    second_name: "Тестов",
+    login: "4derga13",
+    email: "4derga13@test.test",
+    password: "123qweASD",
+    phone: "892783456589"
+  }
+
+  const register = new Button<IButton>({
+    id: 'register',
+    button: 'Регистрация',
+    buttonClass: 'register-button',
+    type: 'button',
+    events: {
+      click: signup,
+    },
+  });
+
+  render('.title-container', title);
+  render('.firstname-container', firstNameLabel);
+  render('.firstname-container', firstName);
+  render('.lastname-container', lastNameLabel);
+  render('.lastname-container', lastName);
+  render('.login-container', loginLabel);
+  render('.login-container', login);
+  render('.email-container', emailLabel);
+  render('.email-container', email);
+  render('.password-container', passwordLabel);
+  render('.password-container', password);
+  render('.phone-container', phoneLabel);
+  render('.phone-container', phone);
+  render('.link-container', toAuthLabel);
+  render('.link-container', toAuth);
+  render('.button-container', register);
+
+  navbar.map((item) => {
+    const navLink = new Button<IButton>(item)
+    render<IButton>('.navigation-panel', navLink)
+  })
+  return {
+    hide: () => hideContent(root),
+  }
+}
+
+

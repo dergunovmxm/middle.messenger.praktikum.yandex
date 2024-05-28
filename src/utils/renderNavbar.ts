@@ -1,28 +1,75 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const navbar: HTMLElement = document.getElementById('nav') as HTMLElement;
-  navbar.innerHTML = `
-	<nav> 
-		<a href='/pages/NotFound/index.html' class='navlink'>
-			404
-		</a>
-		<a href='/pages/ServerError/index.html' class='navlink'>
-			500
-		</a>
-		<a href='/pages/Auth/index.html' class='navlink'>
-			Авторизация
-		</a>
-		<a href='/pages/Register/index.html' class='navlink'>
-			Регистрация
-		</a>
-		<a href='/pages/Messenger/index.html' class='navlink'> 
-			Сообщения
-		</a>
-		<a href='/pages/Profile/index.html' class='navlink'>
-			Личный кабинет
-		</a>
-		<a href='/pages/Settings/index.html' class='navlink'>
-			Настройки пользователя
-		</a>
-	</nav>
-	`;
-});
+import { goTo } from "../app/router"
+
+export const navigateRoutes = [
+
+	{
+		id: 'toMessenger',
+		button: 'Сообщения',
+		buttonClass: 'navlink',
+		type: 'button',
+		events: {
+			click: () => goTo('/messenger'),
+		}
+	},
+	{
+		id: 'toPrifile',
+		button: 'Личный кабинет',
+		buttonClass: 'navlink',
+		type: 'button',
+		events: {
+			click: () => goTo('/profile'),
+		}
+	},
+	{
+		id: 'toSettings',
+		button: 'Настройки пользователя',
+		buttonClass: 'navlink',
+		type: 'button',
+		events: {
+			click: () => goTo('/settings'),
+		}
+	}
+	//TODO: добавить, если потребуется
+	// {
+	// 	id: 'toNotFound',
+	// 	button: '404',
+	// 	buttonClass: 'navlink',
+	// 	type: 'button',
+	// 	events: {
+	// 		click: () => goTo('*'),
+	// 	}
+	// },
+	// {
+	// 	id: 'toServerError',
+	// 	button: '500',
+	// 	buttonClass: 'navlink',
+	// 	type: 'button',
+	// 	events: {
+	// 		click: () => goTo('/server-error'),
+	// 	}
+	// },
+]
+
+const authNavbar = [
+	{
+		id: 'toAuth',
+		button: 'Авторизация',
+		buttonClass: 'navlink',
+		type: 'button',
+		events: {
+			click: () => goTo('/sign-in'),
+		}
+	},
+	{
+		id: 'toRegister',
+		button: 'Регистрация',
+		buttonClass: 'navlink',
+		type: 'button',
+		events: {
+			click: () => goTo('/sign-up'),
+		}
+	},
+]
+
+export const renderNavbar = () => navigateRoutes
+export const renderAuthNavbar = () => authNavbar

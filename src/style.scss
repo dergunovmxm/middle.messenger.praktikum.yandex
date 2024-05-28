@@ -1,3 +1,7 @@
+$base-color: #5b88e5;
+$primary-color: #c4c4c4;
+$light: #fff;
+
 body {
 	margin: 0;
 	height: 100vh;
@@ -13,3 +17,23 @@ a {
 	color: #5B88E5;
 	margin: 0 8px;
 }
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: calc(100vh - 100px);
+}
+
+.auth-button {
+	background-color: $base-color;
+	color: $light;
+	text-decoration: none;
+	width: 120px;
+	height: 40px;
+	border-radius: 10px;
+	cursor: pointer;
+	border: none; 
+}
+

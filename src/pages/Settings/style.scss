@@ -27,10 +27,18 @@ body {
     margin: 16px;
 }
 
+.navigation-panel {
+    display: flex;
+    margin-top: 30px;
+}
+
 .navlink {
     text-decoration: none;
+    border: none;
+    background-color: #fff;
     color: $base-color;
     margin: 0 8px;
+    cursor: pointer;
 }
 
 h1 {
