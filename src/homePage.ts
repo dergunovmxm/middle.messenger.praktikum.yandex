@@ -8,7 +8,6 @@ import { hideContent } from "./utils/hideContent";
 
 export const HomePage = () => {
 	const root = document.querySelector('#root');
-	const nav = document.querySelector('#nav');
 	const button = new Button<IButton>({
 		id: 'auth',
 		button: 'Войти в систему',

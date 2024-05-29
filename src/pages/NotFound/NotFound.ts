@@ -32,7 +32,7 @@ export const NotFound = () => {
     render<IButton>('.navigation-panel', navLink)
   })
   return {
-    hide: () => hideContent(root)
+    hide: hideContent(root)
   }
 }
 

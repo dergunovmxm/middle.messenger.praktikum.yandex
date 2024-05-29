@@ -112,8 +112,7 @@ export const Auth = () => {
     const navLink = new Button<IButton>(item)
     render<IButton>('.navigation-panel', navLink)
   })
-  console.log('auth')
   return {
-    hide: () => hideContent(root),
+    hide: hideContent(root),
   }
 }

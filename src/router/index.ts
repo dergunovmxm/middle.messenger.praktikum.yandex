@@ -10,6 +10,7 @@ export class Route {
 	_pathname: string;
 	_block: () => { hide: () => void };
 	_props: { rootQuery: string };
+	_isRendered: boolean = false;
 	constructor(pathname: string, view: () => { hide: () => void }, props: { rootQuery: string }) {
 		this._pathname = pathname;
 		this._block = view;
@@ -19,7 +20,7 @@ export class Route {
 	navigate(pathname: string) {
 		if (this.match(pathname) && pathname !== this._pathname) {
 			this._pathname = pathname;
-			renderPage(this._props.rootQuery, this._block);
+			this.render();
 		}
 	}
 
@@ -39,27 +40,25 @@ export class Route {
 }
 
 class Router {
-
-	routes: Route[];
-	history: History;
-	_currentRoute?: Route | null;
-	_rootQuery: string;
-	static __instance: Router;
+	private _routes: Route[] = []
+	private _history: History | null = null;
+	private _currentRoute?: Route | null = null;
+	private _rootQuery: string = '';
+	private static __instance: Router | null;
 
 	constructor(rootQuery: string) {
 		if (Router.__instance) {
 			return Router.__instance;
 		}
-
-		this.routes = [];
-		this.history = window.history;
+		this._routes = [];
+		this._history = window.history;
 		this._currentRoute = null;
 		this._rootQuery = rootQuery;
 
 		Router.__instance = this;
 	}
 
-	updateCssFileLink(route: Route) {
+	public updateCssFileLink(route: Route) {
 		const linkElement = document.querySelector('link[rel="stylesheet"]');
 
 		if (linkElement) {
@@ -72,24 +71,25 @@ class Router {
 		}
 	}
 
-	use(pathname: string, block: () => { hide: () => void }) {
+	public use(pathname: string, block: () => { hide: () => void }) {
 		const route = new Route(pathname, block, { rootQuery: this._rootQuery });
-		this.routes.push(route);
+		this._routes.push(route);
 		return this;
 	}
 
-	start() {
-		window.onpopstate = (event: PopStateEvent) => {
-			const target = event.currentTarget as Window;
-			if (target) {
-				this._onRoute(target.location.pathname);
-			}
+	public start(): void {
+		window.onpopstate = () => {
+			this._onRoute(window.location.pathname);
 		}
 		this._onRoute(window.location.pathname)
 	}
 
-	_onRoute(pathname: string) {
+	private _onRoute(pathname: string): void {
+
 		const route = this.getRoute(pathname);
+		if (!route) {
+			return
+		}
 
 		if (this._currentRoute && this._currentRoute !== route) {
 			this._currentRoute.leave();
@@ -108,21 +108,21 @@ class Router {
 		}
 	}
 
-	go(pathname: string) {
-		this.history.pushState({}, '', pathname);
+	public go(pathname: string) {
+		this._history?.pushState({}, '', pathname);
 		this._onRoute(pathname);
 	}
 
-	getRoute(pathname: string) {
-		return this.routes.find((route) => route.match(pathname))
+	private getRoute(pathname: string): Route | undefined {
+		return this._routes.find((route) => route.match(pathname));
 	}
 
-	back() {
-		this.history.back();
+	public back() {
+		this._history?.back();
 	}
 
 	forward() {
-		this.history.forward();
+		this._history?.forward();
 	}
 }
 

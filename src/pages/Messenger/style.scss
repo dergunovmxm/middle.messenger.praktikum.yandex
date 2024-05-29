@@ -1,6 +1,6 @@
 $base-color: #5b88e5;
 $primary-color: #c4c4c4;
-$ligth: #fff;
+$light: #fff;
 
 %dialog-item {
     border: 1px solid $primary-color;
@@ -35,7 +35,7 @@ body {
 .navlink {
     text-decoration: none;
     border: none;
-    background-color: #fff;
+    background-color: $light;
     color: $base-color;
     margin: 0 8px;
     cursor: pointer;
@@ -57,6 +57,7 @@ h1 {
     border-radius: 5px;
     margin-right: 8px;
     height: 80vh;
+    padding-bottom: 16px;
 }
 
 .messenger-dialogs {
@@ -85,6 +86,7 @@ h1 {
     @extend %message-input;
 }
 
+
 input::placeholder {
     color: $base-color;
     padding: 0 8px;
@@ -106,6 +108,19 @@ input::placeholder {
 
 .messenger-input {
     margin: 10px 16px 32px 16px;
+    position: relative;
+}   
+
+.send-button{
+    margin-top: 8px;
+    outline: none;
+    border: none;
+    background-color: $base-color;
+    color: $light;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
 }
 
 .messenger-chat-detail {

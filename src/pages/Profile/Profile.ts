@@ -12,17 +12,17 @@ import { IButton } from '../../interfaces/IButton';
 import { Button } from '../../components/Button';
 import { goTo } from '../../app/router';
 import { useLogout } from '../../hooks/useLogout';
-import { getProfile } from '../../hooks/useProfile';
 import { IUser } from '../../interfaces/IUser';
 import { getUser } from '../../api/repositories/auth';
+import { useProfile } from '../../hooks/useProfile';
 
 
 export const Profile = () => {
   const root = document.querySelector('#root');
   const navbar = renderNavbar();
   const { logout } = useLogout();
-  const { user } = getProfile();
-  console.log("Profile", user);
+  const { getUserData } = useProfile();
+  const user: any = getUserData();
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
   }
@@ -47,13 +47,13 @@ export const Profile = () => {
   const firstname = new Label<ILabel>({
     name: 'firstname',
     labelClass: 'profile-value',
-    label: 'user.first_name',
+    label: user.first_name,
   });
 
   const secondname = new Label<ILabel>({
     name: 'secondname',
     labelClass: 'profile-value',
-    label: 'Пользователь',
+    label: user.second_name,
   });
 
   const loginKey = new Label<ILabel>({
@@ -65,7 +65,7 @@ export const Profile = () => {
   const login = new Label<ILabel>({
     name: 'login',
     labelClass: 'profile-value',
-    label: 'Пользователь',
+    label: user.login,
   });
 
   const emailKey = new Label<ILabel>({
@@ -77,7 +77,7 @@ export const Profile = () => {
   const email = new Label<ILabel>({
     name: 'email',
     labelClass: 'profile-value',
-    label: 'Пользователь',
+    label: user.email,
   });
 
   const phoneKey = new Label<ILabel>({
@@ -89,7 +89,7 @@ export const Profile = () => {
   const phone = new Label<ILabel>({
     name: 'phone',
     labelClass: 'profile-value',
-    label: 'Пользователь',
+    label: user.phone,
   });
 
   const chatNameKey = new Label<ILabel>({
@@ -189,7 +189,7 @@ export const Profile = () => {
   render<IButton>('.actions', editButton)
 
   return {
-    hide: () => hideContent(root),
+    hide: hideContent(root),
   }
 }
 

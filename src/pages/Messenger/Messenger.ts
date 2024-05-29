@@ -73,12 +73,26 @@ export const Messenger = () => {
     }
   })
 
+  const sendButton = new Button<IButton>({
+    id: 'send',
+    button: 'Отправить',
+    buttonClass: 'send-button',
+    type: 'submit',
+    events: {
+      click: () => {
+        console.log('send');
+      }
+    }
+  })
+
+
   render<ITitle>('.messenger-title', title);
   render<IButton>('.dialog-title', toUser);
   render<IInput>('.dialog-search', serchInput);
   render<IInput>('.messenger-input', messageInput);
   render<ILabel>('.messenger-chat-detail', label);
   render<IButton>('.dialog-title', getChatsList);
+  render<IButton>('.messenger-input', sendButton);
   // TODO: убрать any
   chatList.map((item: any) => {
     const dialog = new Dialog<IDialog>(item);
@@ -90,7 +104,7 @@ export const Messenger = () => {
     render<IButton>('.navigation-panel', navLink)
   })
   return {
-    hide: () => hideContent(root),
+    hide: hideContent(root),
   }
 }
 

@@ -1,20 +1,11 @@
-import { getUser } from "../api/repositories/auth"
+import { getUserStore } from "../store/user";
 
-export const getProfile = () => {
-	let user = null;
-
-	const fetchUser = async () => {
-		try {
-			user = await getUser();
-
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
-	fetchUser();
-
+export const useProfile = () => {
+	const getUserData = async () => {
+		const user = await getUserStore()
+		return user
+	}
 	return {
-		user
-	};
+		getUserData
+	}
 };

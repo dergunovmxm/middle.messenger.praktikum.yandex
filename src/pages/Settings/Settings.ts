@@ -153,11 +153,8 @@ export const Settings = () => {
     const navLink = new Button<IButton>(item)
     render<IButton>('.navigation-panel', navLink)
   })
-
-  console.log('settings')
-
   return {
-    hide: () => hideContent(root),
+    hide: hideContent(root),
   }
 }
 
