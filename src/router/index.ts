@@ -91,6 +91,10 @@ class Router {
 			return
 		}
 
+		if (this._currentRoute === route) {
+			return
+		}
+
 		if (this._currentRoute && this._currentRoute !== route) {
 			this._currentRoute.leave();
 		}

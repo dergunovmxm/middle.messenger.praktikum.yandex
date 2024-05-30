@@ -17,12 +17,12 @@ import { getUser } from '../../api/repositories/auth';
 import { useProfile } from '../../hooks/useProfile';
 
 
-export const Profile = () => {
+export const Profile = async () => {
   const root = document.querySelector('#root');
   const navbar = renderNavbar();
   const { logout } = useLogout();
   const { getUserData } = useProfile();
-  const user: any = getUserData();
+  const user: any = await getUserData();
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
   }
