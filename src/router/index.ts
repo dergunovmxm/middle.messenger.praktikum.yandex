@@ -8,7 +8,7 @@ const renderPage = (_: string, block: () => void): void => {
 
 export class Route {
 	_pathname: string;
-	_block: () => { hide: () => void };
+	_block: any;
 	_props: { rootQuery: string };
 	_isRendered: boolean = false;
 	constructor(pathname: string, view: () => { hide: () => void }, props: { rootQuery: string }) {
@@ -17,25 +17,32 @@ export class Route {
 		this._props = props;
 	}
 
-	navigate(pathname: string) {
+	async navigate(pathname: string) {
 		if (this.match(pathname) && pathname !== this._pathname) {
+			await this.leave();
 			this._pathname = pathname;
-			this.render();
+			await this.render();
 		}
 	}
 
-	leave() {
-		if (this._block && typeof this._block().hide === 'function') {
-			this._block().hide();
+	async leave() {
+		const block = this._block();
+		if (block && typeof block.hide === 'function') {
+			console.log('hide func');
+			block.hide();
+		} else if (block instanceof Promise) {
+			console.log('hide promise');
+			await block.then((resolve: { hide: () => void }) => {
+				resolve.hide();
+			});
 		}
 	}
-
 	match(pathname: string) {
 		return pathname === this._pathname;
 	}
 
-	render() {
-		renderPage(this._props.rootQuery, this._block);
+	async render() {
+		await renderPage(this._props.rootQuery, this._block);
 	}
 }
 

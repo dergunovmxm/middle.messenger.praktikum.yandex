@@ -32,9 +32,13 @@ export const HomePage = () => {
 		render<IButton>('#root', button);
 	}
 
-
+	const hide = () => {
+		if (root) {
+			root.textContent = '';
+		}
+	}
 
 	return {
-		hide: () => hideContent(root),
+		hide
 	}
 }

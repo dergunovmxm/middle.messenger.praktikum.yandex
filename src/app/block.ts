@@ -21,7 +21,6 @@ export class Block<T extends object> {
   props: T;
 
   eventBus: () => EventBus<T>;
-  // hide: () => void;
 
   constructor(tagName = 'div', props: T = {} as T) {
     const eventBus = new EventBus();
@@ -149,5 +148,19 @@ export class Block<T extends object> {
   // eslint-disable-next-line class-methods-use-this
   _createDocumentElement(tagName: string) {
     return document.createElement(tagName);
+  }
+
+  show() {
+    const element = this.getContent();
+    if (element) {
+      element.style.display = 'block';
+    }
+  }
+
+  hide() {
+    const element = this.getContent();
+    if (element) {
+      element.style.display = 'none';
+    }
   }
 }

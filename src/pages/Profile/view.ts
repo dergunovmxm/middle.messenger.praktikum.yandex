@@ -3,9 +3,7 @@ export const view = `
 <div class="profile-title"></div>
 <section class="profile-container">
 		<div class="profile-main-info">
-				<div class="image-container">
-						<img />
-				</div>
+				<div class="avatar"></div>
 				<div class="firtname"></div>
 				<div class="secondname"></div>
 				<div class="actions"></div>
@@ -18,11 +16,12 @@ export const view = `
 						<div class="phone"></div>
 						<div class="chat-name"></div>
 				</div>
-				<div class="profile-adding-info-container">
+				<form id="change-password" class="profile-adding-info-container">
 						<div class="old-password-container"></div>
 						<div class="new-password-container"></div>
 						<div class="confirm-password-container"></div>
-				</div>
+						<div class="button-container"></div>
+				</form>
 		</div>
 </section>
 `

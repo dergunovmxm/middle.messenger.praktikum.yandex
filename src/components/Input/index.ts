@@ -15,6 +15,7 @@ export class Input<T extends IInput> extends Block<T> {
       inputClass: this.props.inputClass,
       type: this.props.type,
       placeholder: this.props.placeholder,
+      value: this.props.value,
     });
   }
 }

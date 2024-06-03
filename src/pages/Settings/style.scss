@@ -1,6 +1,6 @@
 $base-color: #5b88e5;
 $primary-color: #c4c4c4;
-$ligth: #fff;
+$light: #fff;
 
 %input-container {
     display: flex;
@@ -35,7 +35,7 @@ body {
 .navlink {
     text-decoration: none;
     border: none;
-    background-color: #fff;
+    background-color: $light;
     color: $base-color;
     margin: 0 8px;
     cursor: pointer;
@@ -61,14 +61,38 @@ h1 {
     border-radius: 20px;
 }
 
-.image-container {
+.settings-avatar {
+    padding: 8px;
+    height: 240px;
     display: flex;
     justify-content: center;
-
-		img {
-        height: 180px;
-        width: 180px;
+    flex-direction: column;
+    align-items: center;
+    position: relative
+    img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 8px;
     }
+}
+
+.change-avatar-input {
+    position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 100px;
+	height: 20px;
+}
+
+.change-avatar-button {
+    color: #5b88e5;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 16px;
 }
 
 .input-container {
@@ -124,16 +148,19 @@ h1 {
     justify-content: center;
 
 		div {
-			a {
+			.settings-form-button {
             background-color: $base-color;
-            width: 120px;
-            height: 40px;
-            border-radius: 10px;
+            border: none;
+            outline: none;
+            width: 150px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $ligth;
+            color: $light;
             text-decoration: none;
+            cursor: pointer;
         }
     }
 }
@@ -159,5 +186,9 @@ h1 {
 }
 
 .phone-container {
+    @extend %input-container;
+}
+
+.displayname-container{
     @extend %input-container;
 }

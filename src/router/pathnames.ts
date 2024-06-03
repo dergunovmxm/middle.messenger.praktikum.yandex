@@ -11,7 +11,7 @@ import { ServerError } from "../pages/ServerError/ServerError";
 router.use('/', HomePage)
 router.use('/sign-in', Auth)
 router.use('/sign-up', Register)
-router.use('/messenger', Messenger)
+router.use('/messenger', Messenger);
 router.use('/profile', Profile)
 router.use('/settings', Settings)
 // router.use('/server-error', ServerError)

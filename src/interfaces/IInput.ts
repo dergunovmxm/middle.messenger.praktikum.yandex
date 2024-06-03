@@ -5,4 +5,5 @@ export interface IInput {
   events?: Object
   eventInterception?: boolean
   placeholder?: string
+  value?: string
 }

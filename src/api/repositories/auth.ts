@@ -2,18 +2,7 @@ import { ICreateUser, ILoginUser, IUser } from "../../interfaces/IUser";
 import { service } from "../fetch";
 import { URL } from "../url";
 
-export const getUser = () => {
-	const response = service.get(`${URL}/auth/user`, {
-		data: {},
-		headers: {
-			"Content-Type": "application/json; charset=utf-8",
-		},
-	})
-		.then((data) => {
-			return data
-		})
-	return response
-}
+
 export const signUp = (data: ICreateUser) => {
 	const response = service.post(`${URL}/auth/signup`, {
 		data,

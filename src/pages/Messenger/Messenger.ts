@@ -3,11 +3,11 @@ import { render } from '../../app';
 import { goTo } from '../../app/router';
 import { messageValidation } from '../../app/validation';
 import {
-  Dialog, Input, Label, Link, Title,
+  Dialog, Input, Label, Title,
 } from '../../components';
 import { Button } from '../../components/Button';
 import {
-  IDialog, IInput, ILabel, ILink, ITitle,
+  IDialog, IInput, ILabel, ITitle,
 } from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
 import { getChats } from '../../utils/chatSelector';
@@ -22,6 +22,7 @@ export const Messenger = () => {
   }
   const navbar = renderNavbar();
   const chatList = getChats();
+
   const title = new Title<ITitle>({
     title: 'Мессенджер',
   });

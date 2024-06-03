@@ -5,7 +5,6 @@ import { render } from '../../app';
 import {
   IInput, ITitle, ILabel, ILink,
 } from '../../interfaces';
-import { getFormData } from '../../app/formData';
 import { loginValidation, passwordValidation } from '../../app/validation';
 import { hideContent } from '../../utils/hideContent';
 import { view } from './view';
@@ -13,7 +12,6 @@ import { IButton } from '../../interfaces/IButton';
 import { Button } from '../../components/Button';
 import { goTo } from '../../app/router';
 import { renderAuthNavbar } from '../../utils/renderNavbar';
-import { getUser } from '../../api/repositories/auth';
 import { useAuth } from '../../hooks/useAuth';
 
 export const Auth = () => {
@@ -73,15 +71,15 @@ export const Auth = () => {
     }
   })
 
-  const user = new Button<IButton>({
-    id: 'test',
-    button: 'Пользователь',
-    buttonClass: 'to-registration-button',
-    type: 'button',
-    events: {
-      click: () => getUser(),
-    }
-  })
+  // const user = new Button<IButton>({
+  //   id: 'test',
+  //   button: 'Пользователь',
+  //   buttonClass: 'to-registration-button',
+  //   type: 'button',
+  //   events: {
+  //     click: () => getUser(),
+  //   }
+  // })
 
   const toRegistrationLabel = new Label<ILabel>({
     name: 'to-registration',
@@ -107,7 +105,7 @@ export const Auth = () => {
   render<ILabel>('.link-container', toRegistrationLabel);
   render<IButton>('.link-container', toRegisterButton);
   render<IButton>('.button-container', auth);
-  render<IButton>('.link-container', user);
+  // render<IButton>('.link-container', user);
   navbar.map((item) => {
     const navLink = new Button<IButton>(item)
     render<IButton>('.navigation-panel', navLink)

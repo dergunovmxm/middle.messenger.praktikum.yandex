@@ -1,12 +1,12 @@
 export interface IUser {
-	id: number
-	first_name: string
-	second_name: string
+	id?: number
+	first_name?: string
+	second_name?: string
 	display_name?: string
-	phone: string
-	login: string
+	phone?: string
+	login?: string
 	avatar?: string
-	email: string
+	email?: string
 }
 
 export interface ICreateUser {
@@ -30,4 +30,9 @@ export interface IUpdateUser {
 export interface ILoginUser {
 	login: string,
 	password: string
+}
+
+export interface IChangePassword {
+	oldPassword: string,
+	newPassword: string
 }

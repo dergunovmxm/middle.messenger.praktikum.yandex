@@ -60,10 +60,17 @@ h1 {
     padding: 24px;
 }
 
-.image-container {
+.avatar {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 60%;
+    img {
+        height: 240px;
+        width: 240px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
 }
 
 .profile-main-info {
@@ -74,6 +81,7 @@ h1 {
     padding: 32px;
     position: relative;
     box-sizing: border-box;
+    min-width: 360px;
 
 }
 
@@ -102,6 +110,23 @@ h1 {
     width: 120px;
     color: #fff;
     margin-right: 24px;
+}
+
+.button-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: start;
+}
+
+.change-password-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: $base-color;
+    height: 32px;
+    width: 120px;
+    color: #fff;
+    margin-left: 32px;
 }
 
 .profile-adding-info {
