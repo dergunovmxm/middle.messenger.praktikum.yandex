@@ -133,3 +133,31 @@ input::placeholder {
         color: $base-color;
     }
 }
+
+.dialog-create {
+    display: flex;
+    margin-bottom: 6px;
+    div {
+        flex-grow: 1;
+    }
+}
+
+.dialog-create :nth-child(2){
+    max-width: 80px;
+}
+
+.add-user-to-chat-button {
+    outline: none;
+    border: none;
+    background-color: $base-color;
+    color: $light;
+    padding: 8px;
+    margin-left: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-user-to-chat-input {
+    @extend %message-input;
+   
+}

@@ -11,7 +11,7 @@ export const getAllChats = () => {
 }
 
 export const getChatById = (id: number) => {
-	const response = service.get(`${URL}/chats/token/${id}`, {
+	const response = service.post(`${URL}/chats/token/${id}`, {
 		data: {},
 		headers: {
 			"Content-Type": "application/json; charset=utf-8",

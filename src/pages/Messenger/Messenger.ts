@@ -6,22 +6,23 @@ import {
   Dialog, Input, Label, Title,
 } from '../../components';
 import { Button } from '../../components/Button';
+import { useMessenger } from '../../hooks/useMessenger';
 import {
   IDialog, IInput, ILabel, ITitle,
 } from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
-import { getChats } from '../../utils/chatSelector';
 import { hideContent } from '../../utils/hideContent';
 import { renderNavbar } from '../../utils/renderNavbar';
 import { view } from './view';
 
 export const Messenger = () => {
   const root = document.querySelector('#root');
+  const { onCreateChat } = useMessenger();
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
   }
   const navbar = renderNavbar();
-  const chatList = getChats();
+  const { getChatList, onClickChat } = useMessenger()
 
   const title = new Title<ITitle>({
     title: 'Мессенджер',
@@ -62,23 +63,11 @@ export const Messenger = () => {
     label: 'Ваше сообщение',
   });
 
-  const getChatsList = new Button<IButton>({
-    id: 'getChats',
-    button: 'Получить чаты',
-    buttonClass: 'get-chats-button',
-    type: 'button',
-    events: {
-      click: () => {
-        getAllChats();
-      }
-    }
-  })
-
   const sendButton = new Button<IButton>({
     id: 'send',
     button: 'Отправить',
     buttonClass: 'send-button',
-    type: 'submit',
+    type: 'button',
     events: {
       click: () => {
         console.log('send');
@@ -86,19 +75,42 @@ export const Messenger = () => {
     }
   })
 
+  const addUserButton = new Button<IButton>({
+    id: 'addUserToChat',
+    button: 'Добавить',
+    buttonClass: 'add-user-to-chat-button',
+    type: 'button',
+    events: {
+      click: onCreateChat
+    }
+  })
+
+  const addUserInput = new Input<IInput>({
+    type: 'text',
+    name: 'addUser',
+    inputClass: 'add-user-to-chat-input',
+    placeholder: 'Введите название чата',
+  });
 
   render<ITitle>('.messenger-title', title);
   render<IButton>('.dialog-title', toUser);
   render<IInput>('.dialog-search', serchInput);
   render<IInput>('.messenger-input', messageInput);
   render<ILabel>('.messenger-chat-detail', label);
-  render<IButton>('.dialog-title', getChatsList);
   render<IButton>('.messenger-input', sendButton);
-  // TODO: убрать any
-  chatList.map((item: any) => {
-    const dialog = new Dialog<IDialog>(item);
+  render<IInput>('.dialog-create', addUserInput);
+  render<IButton>('.dialog-create', addUserButton);
+
+  getChatList().then((chatList) => chatList.map((item: IDialogItem) => {
+    const dialog = new Dialog<IDialog>({
+      title: item.title,
+      className: 'dialog-container',
+      events: {
+        click: onClickChat(item?.id, item.title)
+      }
+    });
     render<IDialog>('.dialogs-container', dialog);
-  });
+  }));
 
   navbar.map((item) => {
     const navLink = new Button<IButton>(item)

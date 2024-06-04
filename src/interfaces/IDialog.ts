@@ -1,4 +1,10 @@
 export interface IDialog {
-  text: string
+  title: string
   className: string
+  events?: Record<string, Function>
+}
+
+export interface IDialogItem {
+  id: number
+  title: string
 }

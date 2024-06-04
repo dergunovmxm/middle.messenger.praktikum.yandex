@@ -11,7 +11,7 @@ export class Dialog<T extends IDialog> extends Block<IDialog> {
   render() {
     const template = compile(view);
     return template({
-      text: this.props.text,
+      title: this.props.title,
     });
   }
 }

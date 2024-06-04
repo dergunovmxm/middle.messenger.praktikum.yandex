@@ -34,3 +34,7 @@ export interface IAddUserToChat {
 	},
 	headers: Record<string, string>;
 }
+
+export interface IMessage {
+	message: string;
+}
