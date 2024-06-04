@@ -125,7 +125,7 @@ export const Settings = () => {
     const avatar = new Image<IImage>({
       src: user.avatar ? `${URL}/resources${user.avatar}` : imgUrl,
       alt: 'avatar',
-      className: 'profile-avatar',
+      className: 'avatar',
     })
     const changeAvatarInput = new Input<IInput>({
       type: 'file',
@@ -144,11 +144,13 @@ export const Settings = () => {
         click: onChangeAvatar
       },
     })
+
     const changeAvatarLabel = new Label<ILabel>({
       name: 'avatar',
       labelClass: 'change-avatar-label',
       label: 'Выбрать файл',
-    })
+    });
+
     render<IImage>('.settings-avatar', avatar);
     render<IInput>('.settings-avatar', changeAvatarInput);
     render<ILabel>('.settings-avatar', changeAvatarLabel);

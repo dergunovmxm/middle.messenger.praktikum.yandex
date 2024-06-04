@@ -1,1 +1,1 @@
-export const view = '{{label}}';
+export const view = '<span class={{labelClass}}>{{label}}</span>';
