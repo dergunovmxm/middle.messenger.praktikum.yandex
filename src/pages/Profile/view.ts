@@ -24,4 +24,4 @@ export const view = `
 				</form>
 		</div>
 </section>
-`
+`;

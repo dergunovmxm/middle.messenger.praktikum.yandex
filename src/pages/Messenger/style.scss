@@ -79,6 +79,7 @@ h1 {
     }
     @extend %dialog-item;
 }
+
 .chat-title {
     display: flex;
     justify-content: center;
@@ -127,6 +128,7 @@ input::placeholder {
     margin: 10px 16px 32px 16px;
     position: relative;
 }
+
 .messenger-chat-list {
     display: flex;
     flex-direction: column;
@@ -169,8 +171,10 @@ input::placeholder {
 }
 
 .dialog-create {
+
     display: flex;
     margin-bottom: 6px;
+    
     div {
         flex-grow: 1;
     }

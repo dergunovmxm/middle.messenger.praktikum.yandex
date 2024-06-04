@@ -28,12 +28,10 @@ export const NotFound = () => {
   render('.not-found-container', link);
 
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
   return {
-    hide: hideContent(root)
-  }
-}
-
-
+    hide: hideContent(root),
+  };
+};

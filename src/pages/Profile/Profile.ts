@@ -14,12 +14,10 @@ import { IButton } from '../../interfaces/IButton';
 import { Button } from '../../components/Button';
 import { goTo } from '../../app/router';
 import { useLogout } from '../../hooks/useLogout';
-import { IUser } from '../../interfaces/IUser';
 import { useProfile } from '../../hooks/useProfile';
 import { useSettings } from '../../hooks/useSettings';
 import imgUrl from '../../assets/avatar.svg';
 import { URL } from '../../api/url';
-
 
 export const Profile = () => {
   const root = document.querySelector('#root');
@@ -27,7 +25,6 @@ export const Profile = () => {
   const { logout } = useLogout();
   const { getProfile } = useProfile();
   const { onChangePassword, resetForm } = useSettings();
-
 
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
@@ -49,18 +46,11 @@ export const Profile = () => {
     label: 'Фамилия: ',
   });
 
-
-
-
-
-
   const loginKey = new Label<ILabel>({
     name: 'loginKey',
     labelClass: 'profile-value',
     label: 'Логин: ',
   });
-
-
 
   const emailKey = new Label<ILabel>({
     name: 'emailKey',
@@ -68,22 +58,17 @@ export const Profile = () => {
     label: 'Почта: ',
   });
 
-
-
   const phoneKey = new Label<ILabel>({
     name: 'phoneKey',
     labelClass: 'profile-value',
     label: 'Телефон: ',
   });
 
-
   const chatNameKey = new Label<ILabel>({
     name: 'chatNameKey',
     labelClass: 'profile-value',
     label: 'Имя в чате: ',
   });
-
-
 
   const oldPasswordKey = new Label<ILabel>({
     name: 'oldPasswordKey',
@@ -127,9 +112,9 @@ export const Profile = () => {
     buttonClass: 'profile-button',
     type: 'button',
     events: {
-      click: logout
+      click: logout,
     },
-  })
+  });
 
   const editButton = new Button<IButton>({
     id: 'edit',
@@ -139,7 +124,7 @@ export const Profile = () => {
     events: {
       click: () => goTo('/settings'),
     },
-  })
+  });
 
   const changePasswordButton = new Button<IButton>({
     id: 'changePassword',
@@ -149,7 +134,7 @@ export const Profile = () => {
     events: {
       click: () => onChangePassword(),
     },
-  })
+  });
 
   const resetFormButton = new Button<IButton>({
     id: 'resetForm',
@@ -159,26 +144,9 @@ export const Profile = () => {
     events: {
       click: () => resetForm(),
     },
-  })
-
-  const changeAvatartButton = new Button<IButton>({
-    id: 'changeAvatar',
-    button: 'Изменить аватар',
-    buttonClass: 'change-avatar-button',
-    type: 'file',
-    events: {
-      click: () => alert('avatar'),
-    },
-  })
-
-  const changeAvatarInput = new Input<IInput>({
-    type: 'file',
-    name: 'avatar',
-    inputClass: 'change-avatar-input',
-  })
+  });
 
   getProfile().then((user: any) => {
-
     const firstname = new Label<ILabel>({
       name: 'firstname',
       labelClass: 'profile-value',
@@ -214,7 +182,7 @@ export const Profile = () => {
       src: user.avatar ? `${URL}/resources${user.avatar}` : imgUrl,
       alt: 'avatar',
       className: 'profile-avatar',
-    })
+    });
     render<IImage>('.avatar', avatar);
     render<ILabel>('.firtname', firstname);
     render<ILabel>('.secondname', secondname);
@@ -222,7 +190,7 @@ export const Profile = () => {
     render<ILabel>('.email', email);
     render<ILabel>('.phone', phone);
     render<ILabel>('.chat-name', chatName);
-  })
+  });
 
   render<ITitle>('.profile-title', title);
   render<ILabel>('.firtname', firstNameKey);
@@ -240,15 +208,13 @@ export const Profile = () => {
   render<IButton>('.button-container', resetFormButton);
   render<IButton>('.button-container', changePasswordButton);
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
-  render<IButton>('.actions', logoutButton)
-  render<IButton>('.actions', editButton)
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
+  render<IButton>('.actions', logoutButton);
+  render<IButton>('.actions', editButton);
 
   return {
     hide: hideContent(root),
-  }
-}
-
-
+  };
+};

@@ -1,7 +1,5 @@
-import { getAllChats } from '../../api/repositories/messenger';
 import { render } from '../../app';
 import { goTo } from '../../app/router';
-import { messageValidation } from '../../app/validation';
 import {
   Dialog, Input, Label, Title,
 } from '../../components';
@@ -23,7 +21,7 @@ export const Messenger = () => {
     root.insertAdjacentHTML('afterbegin', view);
   }
   const navbar = renderNavbar();
-  const { getChatList, onClickChat } = useMessenger()
+  const { getChatList, onClickChat } = useMessenger();
 
   const title = new Title<ITitle>({
     title: 'Мессенджер',
@@ -36,8 +34,8 @@ export const Messenger = () => {
     type: 'button',
     events: {
       click: () => goTo('/profile'),
-    }
-  })
+    },
+  });
 
   const serchInput = new Input<IInput>({
     type: 'text',
@@ -46,15 +44,11 @@ export const Messenger = () => {
     placeholder: 'Поиск...',
   });
 
-
-
   const label = new Label<ILabel>({
     name: 'label',
     labelClass: 'dialog-message-label',
     label: 'Начните диалог',
   });
-
-
 
   const addUserButton = new Button<IButton>({
     id: 'addUserToChat',
@@ -62,9 +56,9 @@ export const Messenger = () => {
     buttonClass: 'add-user-to-chat-button',
     type: 'button',
     events: {
-      click: onCreateChat
-    }
-  })
+      click: onCreateChat,
+    },
+  });
 
   const addUserInput = new Input<IInput>({
     type: 'text',
@@ -77,7 +71,7 @@ export const Messenger = () => {
     name: 'label',
     labelClass: 'dialog-message-label',
     label: 'Список пользователей',
-  })
+  });
 
   render<ILabel>('.messenger-chat-list-title', userListTitle);
   render<ITitle>('.messenger-title', title);
@@ -92,18 +86,17 @@ export const Messenger = () => {
       title: item.title,
       className: 'dialog-container',
       events: {
-        click: onClickChat(item?.id, item.title)
-      }
+        click: onClickChat(item?.id, item.title),
+      },
     });
     render<IDialog>('.dialogs-container', dialog);
   }));
 
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
   return {
     hide: hideContent(root),
-  }
-}
-
+  };
+};

@@ -1,9 +1,9 @@
 import {
-  Input, Label, Link, Title,
+  Input, Label, Title,
 } from '../../components';
 import { render } from '../../app';
 import {
-  IInput, ITitle, ILabel, ILink,
+  IInput, ITitle, ILabel,
 } from '../../interfaces';
 import { loginValidation, passwordValidation } from '../../app/validation';
 import { hideContent } from '../../utils/hideContent';
@@ -22,7 +22,7 @@ export const Auth = () => {
 
   const { signin } = useAuth();
 
-  const navbar = renderAuthNavbar()
+  const navbar = renderAuthNavbar();
   const title = new Title<ITitle>({
     title: 'Авторизация',
   });
@@ -68,8 +68,8 @@ export const Auth = () => {
     type: 'button',
     events: {
       click: () => goTo('/sign-up'),
-    }
-  })
+    },
+  });
 
   // const user = new Button<IButton>({
   //   id: 'test',
@@ -107,10 +107,10 @@ export const Auth = () => {
   render<IButton>('.button-container', auth);
   // render<IButton>('.link-container', user);
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
   return {
     hide: hideContent(root),
-  }
-}
+  };
+};

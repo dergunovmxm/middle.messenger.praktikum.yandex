@@ -13,4 +13,4 @@ export const view = `
 			<div class='button-container'></div>
 		</form>
 	</div>
-`
+`;

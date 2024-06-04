@@ -1,9 +1,9 @@
 import {
-  Input, Label, Link, Title,
+  Input, Label, Title,
 } from '../../components';
 import { render } from '../../app';
 import {
-  IInput, ILabel, ILink, ITitle,
+  IInput, ILabel, ITitle,
 } from '../../interfaces';
 import {
   emailValidation, loginValidation, nameValidation, passwordValidation,
@@ -15,6 +15,7 @@ import { goTo } from '../../app/router';
 import { IButton } from '../../interfaces/IButton';
 import { renderAuthNavbar } from '../../utils/renderNavbar';
 import { useRegister } from '../../hooks/useRegister';
+
 export const Register = () => {
   const root = document.querySelector('#root');
   const { signup } = useRegister();
@@ -132,23 +133,14 @@ export const Register = () => {
     type: 'button',
     events: {
       click: () => goTo('/sign-in'),
-    }
-  })
+    },
+  });
 
   const toAuthLabel = new Label<ILabel>({
     name: 'to-auth',
     labelClass: 'register-form-label',
     label: 'Уже есть аккаунт?',
   });
-
-  const testUser = {
-    first_name: "Максим",
-    second_name: "Тестов",
-    login: "4derga13",
-    email: "4derga13@test.test",
-    password: "123qweASD",
-    phone: "892783456589"
-  }
 
   const register = new Button<IButton>({
     id: 'register',
@@ -178,12 +170,10 @@ export const Register = () => {
   render('.button-container', register);
 
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
   return {
     hide: hideContent(root),
-  }
-}
-
-
+  };
+};

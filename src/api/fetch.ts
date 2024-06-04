@@ -44,7 +44,7 @@ export class HTTPTransport {
         Object.entries(headers).forEach(([key, value]) => {
           xhr.setRequestHeader(key, value as string);
           if (value.includes('application/json')) {
-            isApplicationJson = true
+            isApplicationJson = true;
           }
         });
       }
@@ -67,8 +67,7 @@ export class HTTPTransport {
         xhr.send();
       } else if (isApplicationJson) {
         xhr.send(JSON.stringify(data) as Send);
-      }
-      else {
+      } else {
         xhr.send(data as Send);
       }
     });

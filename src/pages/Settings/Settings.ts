@@ -1,5 +1,5 @@
 import {
-  Input, Label, Title, Link,
+  Input, Label, Title,
   Image,
 } from '../../components';
 import { render } from '../../app';
@@ -7,7 +7,6 @@ import {
   IImage,
   IInput, ILabel, ITitle,
 } from '../../interfaces';
-import { getFormData } from '../../app/formData';
 import { hideContent } from '../../utils/hideContent';
 import { view } from './view';
 import { renderNavbar } from '../../utils/renderNavbar';
@@ -17,8 +16,8 @@ import { useSettings } from '../../hooks/useSettings';
 import { useProfile } from '../../hooks/useProfile';
 import imgUrl from '../../assets/avatar.svg';
 import { URL } from '../../api/url';
-export const Settings = () => {
 
+export const Settings = () => {
   const { onChangeProfile, onChangeAvatar } = useSettings();
   const { getProfile } = useProfile();
 
@@ -68,8 +67,6 @@ export const Settings = () => {
     labelClass: 'settings-form-label',
     label: 'Имя в чате',
   });
-
-
 
   const saveButton = new Button<IButton>({
     id: 'button',
@@ -126,7 +123,7 @@ export const Settings = () => {
       src: user.avatar ? `${URL}/resources${user.avatar}` : imgUrl,
       alt: 'avatar',
       className: 'avatar',
-    })
+    });
     const changeAvatarInput = new Input<IInput>({
       type: 'file',
       name: 'avatar',
@@ -134,16 +131,16 @@ export const Settings = () => {
       // events: {
       //   change: onChangeAvatar
       // })
-    })
+    });
     const saveAvatar = new Button<IButton>({
       id: 'button',
       button: 'Изменить аватар',
       buttonClass: 'change-avatar-button',
       type: 'button',
       events: {
-        click: onChangeAvatar
+        click: onChangeAvatar,
       },
-    })
+    });
 
     const changeAvatarLabel = new Label<ILabel>({
       name: 'avatar',
@@ -163,7 +160,7 @@ export const Settings = () => {
     render<IInput>('.email-container', email);
     render<IInput>('.phone-container', phone);
     render<IInput>('.displayname-container', displayName);
-  })
+  });
 
   render<ITitle>('.title-container', title);
   render<ILabel>('.firstname-container', firstNameLabel);
@@ -174,11 +171,10 @@ export const Settings = () => {
   render<IButton>('.button-container', saveButton);
 
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
   return {
     hide: hideContent(root),
-  }
-}
-
+  };
+};

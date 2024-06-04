@@ -108,9 +108,12 @@ h1 {
     text-decoration: none;
     color: $ligth;
     margin: 0 8px;
+
     div {
-       cursor: pointer;
-       .auth-button {
+       
+        cursor: pointer;
+       
+        .auth-button {
            outline: none;
            border: none;
            background-color: $base-color;
@@ -121,7 +124,9 @@ h1 {
 
 .link-container {
     div {
+        
         cursor: pointer;
+        
         button {
             text-decoration: none;
             border: none;

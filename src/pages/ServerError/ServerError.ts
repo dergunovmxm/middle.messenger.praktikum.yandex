@@ -8,8 +8,7 @@ import { IButton } from '../../interfaces/IButton';
 import { Button } from '../../components/Button';
 
 export const ServerError = () => {
-
-  const navbar = renderNavbar()
+  const navbar = renderNavbar();
   const root = document.querySelector('#root');
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
@@ -19,14 +18,13 @@ export const ServerError = () => {
   });
 
   navbar.map((item) => {
-    const navLink = new Button<IButton>(item)
-    render<IButton>('.navigation-panel', navLink)
-  })
+    const navLink = new Button<IButton>(item);
+    render<IButton>('.navigation-panel', navLink);
+  });
 
   render<ITitle>('.server-error-container', title);
 
-
   return {
     hide: () => hideContent(root),
-  }
-}
+  };
+};

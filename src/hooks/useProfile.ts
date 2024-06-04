@@ -1,11 +1,11 @@
-import { getUserStore } from "../store/user";
+import { getUserStore } from '../store/user';
 
 export const useProfile = () => {
-	const getProfile = async () => {
-		const user = await getUserStore()
-		return user
-	}
-	return {
-		getProfile
-	}
+  const getProfile = async () => {
+    const user = await getUserStore();
+    return user;
+  };
+  return {
+    getProfile,
+  };
 };

@@ -149,9 +149,12 @@ h1 {
     text-decoration: none;
     color: $ligth;
     margin: 24px;
+    
     div {
-       cursor: pointer;
-       .register-button {
+       
+        cursor: pointer;
+       
+        .register-button {
            outline: none;
            border: none;
            background-color: $base-color;

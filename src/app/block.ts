@@ -1,9 +1,6 @@
 import { EventBus } from './eventBus';
 
 export class Block<T extends object> {
-  renderTo(root: Element) {
-    throw new Error("Method not implemented.");
-  }
   static EVENTS: { [key: string]: string } = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',

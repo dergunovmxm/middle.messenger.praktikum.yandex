@@ -22,4 +22,4 @@ export const view = `
 			<div class='dialogs-container'></div>
 		</div>
 	</div>
-`
+`;

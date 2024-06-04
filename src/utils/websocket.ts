@@ -1,35 +1,34 @@
-import { createSocket } from "../api/websocket";
+import { createSocket } from '../api/websocket';
 
-
-export const createWSThunk = (userId: number, chatId: number, token: string) => createSocket(userId, chatId, token)
+export const createWSThunk = (userId: number, chatId: number, token: string) => createSocket(userId, chatId, token);
 
 export const callHandlersWS = (socket: WebSocket) => {
-	socket.addEventListener('open', () => {
-		console.log('Соединение установлено')
-		socket.send(JSON.stringify({
-			type: 'ping',
-			content: 'ping'
-		}))
-	})
+  socket.addEventListener('open', () => {
+    console.log('Соединение установлено');
+    socket.send(JSON.stringify({
+      type: 'ping',
+      content: 'ping',
+    }));
+  });
 
-	socket.addEventListener('close', (event) => {
-		if (event.wasClean) {
-			console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`)
-		} else {
-			console.log('[close] Обрыв соединения')
-		}
-	})
+  socket.addEventListener('close', (event) => {
+    if (event.wasClean) {
+      console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+    } else {
+      console.log('[close] Обрыв соединения');
+    }
+  });
 
-	socket.addEventListener('message', (event) => {
-		try {
-			const data = JSON.parse(event.data)
-			console.log('[message] Данные получены', data)
-		} catch (e) {
-			alert(e)
-		}
-	})
+  socket.addEventListener('message', (event) => {
+    try {
+      const data = JSON.parse(event.data);
+      console.log('[message] Данные получены', data);
+    } catch (e) {
+      alert(e);
+    }
+  });
 
-	socket.addEventListener('error', (event) => {
-		console.log(`[error] ${event}`)
-	})
-}
+  socket.addEventListener('error', (event) => {
+    console.log(`[error] ${event}`);
+  });
+};

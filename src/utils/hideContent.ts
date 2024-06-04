@@ -1,5 +1,5 @@
 export const hideContent = (element: Element | null) => () => {
-	if (element) {
-		element.textContent = '';
-	}
+  if (element) {
+    element.textContent = '';
+  }
 };
