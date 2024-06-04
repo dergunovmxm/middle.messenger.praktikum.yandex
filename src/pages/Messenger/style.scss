@@ -51,13 +51,15 @@ h1 {
     padding: 24px;
 }
 
-.messenger-chat {
+.messenger{
     width: 70%;
     border: 1px solid $primary-color;
     border-radius: 5px;
     margin-right: 8px;
     height: 80vh;
     padding-bottom: 16px;
+
+    display: flex;
 }
 
 .messenger-dialogs {
@@ -76,6 +78,20 @@ h1 {
         }
     }
     @extend %dialog-item;
+}
+.chat-title {
+    display: flex;
+    justify-content: center;
+    color: $base-color;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px solid $primary-color;
+}
+
+.messenger-add-user {
+    display: flex;
+    
 }
 
 .dialog-search {
@@ -104,12 +120,30 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 65%;
 }
 
 .messenger-input {
     margin: 10px 16px 32px 16px;
     position: relative;
-}   
+}
+.messenger-chat-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    border: 1px solid $primary-color;
+}
+
+.messenger-chat-list-title {
+    display: flex;
+    justify-content: center;
+    color: $base-color;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    border-bottom: 1px solid $primary-color;
+}
 
 .send-button{
     margin-top: 8px;

@@ -48,7 +48,7 @@ export const deleteChat = (chatId: number) => {
 
 
 export const addUserToChat = (users: number[], chatId: number) => {
-	const response = service.post(`${URL}/chats/users`, {
+	const response = service.put(`${URL}/chats/users`, {
 		data: {
 			users,
 			chatId

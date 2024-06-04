@@ -11,6 +11,7 @@ import {
   IDialog, IInput, ILabel, ITitle,
 } from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
+import { IDialogItem } from '../../interfaces/IDialog';
 import { hideContent } from '../../utils/hideContent';
 import { renderNavbar } from '../../utils/renderNavbar';
 import { view } from './view';
@@ -45,35 +46,15 @@ export const Messenger = () => {
     placeholder: 'Поиск...',
   });
 
-  const messageInput = new Input<IInput>({
-    type: 'text',
-    name: 'message',
-    inputClass: 'dialog-message-input',
-    placeholder: 'Введите сообщение...',
-    events: {
-      blur: messageValidation,
-      submit: messageValidation,
-    },
-    eventInterception: true,
-  });
+
 
   const label = new Label<ILabel>({
     name: 'label',
     labelClass: 'dialog-message-label',
-    label: 'Ваше сообщение',
+    label: 'Начните диалог',
   });
 
-  const sendButton = new Button<IButton>({
-    id: 'send',
-    button: 'Отправить',
-    buttonClass: 'send-button',
-    type: 'button',
-    events: {
-      click: () => {
-        console.log('send');
-      }
-    }
-  })
+
 
   const addUserButton = new Button<IButton>({
     id: 'addUserToChat',
@@ -92,12 +73,17 @@ export const Messenger = () => {
     placeholder: 'Введите название чата',
   });
 
+  const userListTitle = new Label<ILabel>({
+    name: 'label',
+    labelClass: 'dialog-message-label',
+    label: 'Список пользователей',
+  })
+
+  render<ILabel>('.messenger-chat-list-title', userListTitle);
   render<ITitle>('.messenger-title', title);
   render<IButton>('.dialog-title', toUser);
   render<IInput>('.dialog-search', serchInput);
-  render<IInput>('.messenger-input', messageInput);
   render<ILabel>('.messenger-chat-detail', label);
-  render<IButton>('.messenger-input', sendButton);
   render<IInput>('.dialog-create', addUserInput);
   render<IButton>('.dialog-create', addUserButton);
 

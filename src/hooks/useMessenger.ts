@@ -4,13 +4,15 @@ import { getFormData } from "../app/formData"
 import { Dialog } from "../components"
 import { IDialog } from "../interfaces"
 import { IMessage } from "../interfaces/IChat"
-import { createChatStore, getAllChatsStore } from "../store/messenger"
+import { renderDialog } from "../pages/Messenger/Dialog"
+import { addUserToChatStore, createChatStore, getAllChatsStore } from "../store/messenger"
 import { getUserStore } from "../store/user"
-import { createWSStore } from "../store/websocket"
+import { callWSStore, createWSStore } from "../store/websocket"
 
 
 export const useMessenger = () => {
-	const form = document.querySelector('.messenger-chat')
+	const form = document.querySelector('.messenger-chat') as HTMLFormElement
+	const formAddToChat = document.querySelector('.messenger-add-user') as HTMLFormElement
 	const getUserForChat = async () => {
 		const user = await getUserStore()
 		return user
@@ -27,14 +29,27 @@ export const useMessenger = () => {
 			content: data.message,
 			type: 'message',
 		}))
+		form?.reset()
 	}
 
+	const onAddToChat = (chatId: number) => async () => {
+		if (formAddToChat) {
+			const { addUser } = getFormData<{ addUser: string }>(formAddToChat as HTMLFormElement)
+			try {
+				await addUserToChatStore([Number(addUser)], chatId)
+				alert('Пользователь добавлен в чат')
+			} catch (e) {
+				alert('Не удалось добавить пользователя в чат')
+			}
+		}
+	}
 	//TODO: убрать any
 	const onClickChat = (id: number, title: string) => async () => {
 		const user: any = await getUserForChat()
 		const token = await getChatById(id)
 		const socket = await createWSStore(user.id, id, token)
-
+		callWSStore(socket)
+		renderDialog(sendMessage(socket), title, onAddToChat(id))
 	}
 
 	const onCreateChat = async () => {
@@ -55,6 +70,8 @@ export const useMessenger = () => {
 			alert('Не удалось создать чат')
 		}
 	}
+
+
 
 	return {
 		getUserForChat,
