@@ -68,13 +68,13 @@ class Router {
     this._currentRoute = route;
     if (route) {
       route.render();
-      this.updateCssFileLink(route);
+      // this.updateCssFileLink(route);
 
-      const scriptPath = `${selectScript(route)}.ts`;
-      const scriptElement = document.querySelector('script[router="true"]');
-      if (scriptElement) {
-        scriptElement.setAttribute('src', scriptPath);
-      }
+      // const scriptPath = `${selectScript(route)}.ts`;
+      // const scriptElement = document.querySelector('script[router="true"]');
+      // if (scriptElement) {
+      //   scriptElement.setAttribute('src', scriptPath);
+      // }
     }
   }
 

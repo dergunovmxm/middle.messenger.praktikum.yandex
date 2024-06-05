@@ -113,10 +113,14 @@ h1 {
     margin-right: 24px;
 }
 
-.button-container {
+.profile-button-container{
     margin-top: 16px;
     display: flex;
     justify-content: start;
+}
+
+.profile-button-container:nth-child(1) {
+    margin-left: 24px;
 }
 
 .change-password-button {
@@ -127,7 +131,6 @@ h1 {
     height: 32px;
     width: 120px;
     color: #fff;
-    margin-left: 32px;
 }
 
 .profile-adding-info {

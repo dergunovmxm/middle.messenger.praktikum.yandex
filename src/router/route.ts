@@ -28,10 +28,8 @@ export class Route {
   async leave() {
     const block = this._block();
     if (block && typeof block.hide === 'function') {
-      console.log('hide func');
       block.hide();
     } else if (block instanceof Promise) {
-      console.log('hide promise');
       await block.then((resolve: { hide: () => void }) => {
         resolve.hide();
       });

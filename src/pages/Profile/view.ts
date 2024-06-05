@@ -20,7 +20,7 @@ export const view = `
 						<div class="old-password-container"></div>
 						<div class="new-password-container"></div>
 						<div class="confirm-password-container"></div>
-						<div class="button-container"></div>
+						<div class="profile-button-container"></div>
 				</form>
 		</div>
 </section>

@@ -67,12 +67,6 @@ h1 {
     @extend %input-item;
 }
 
-.link-container {
-    padding: 16px 64px;
-    display: flex;
-    justify-content: center;
-}
-
 .auth-form-input {
     width: calc(100% - 32px);
     outline: none;
@@ -102,6 +96,10 @@ h1 {
         align-items: center;
         justify-content: center;
     }
+}
+
+.title-container {
+    margin: 24px 0 ;
 }
 
 .button-container {

@@ -26,9 +26,9 @@ export const HomePage = () => {
   });
 
   if (root) {
-    render<ITitle>('#root', title);
-    render<ITitle>('#root', goToAuth);
-    render<IButton>('#root', button);
+    render<ITitle>('.root-container', title);
+    render<ITitle>('.root-container', goToAuth);
+    render<IButton>('.root-container', button);
   }
 
   const hide = () => {
