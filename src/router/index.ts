@@ -1,4 +1,3 @@
-import { selectScript } from '../utils/selectScript';
 import { selectStylesName } from '../utils/selectStyleName';
 import { Route } from './route';
 
