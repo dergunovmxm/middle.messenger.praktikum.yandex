@@ -35,7 +35,7 @@
 | Установить зависимости             | `npm install`                                                                    |
 | Сборка и запуск на localhost:3000/ | `npm run start`                                                                  |
 
-## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
+<!-- ## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
 
 ## Страницы
 
@@ -49,4 +49,4 @@
 
 #### Страница профиля: https://gleeful-scone-e3f838.netlify.app/pages/profile/
 
-#### Страница Мессенджера: https://gleeful-scone-e3f838.netlify.app/pages/messenger/
+#### Страница Мессенджера: https://gleeful-scone-e3f838.netlify.app/pages/messenger/ -->
