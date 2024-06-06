@@ -35,18 +35,16 @@
 | Установить зависимости             | `npm install`                                                                    |
 | Сборка и запуск на localhost:3000/ | `npm run start`                                                                  |
 
-<!-- ## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
+## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
 
 ## Страницы
 
-#### Страница не найдена: https://gleeful-scone-e3f838.netlify.app/pages/notfound/
+#### Страница авторизации: https://rococo-puffpuff-096482.netlify.app/sign-in
 
-#### Страница ошибки сервера: https://gleeful-scone-e3f838.netlify.app/pages/servererror/
+#### Страница регистрации: https://rococo-puffpuff-096482.netlify.app/sign-up
 
-#### Страница авторизации: https://gleeful-scone-e3f838.netlify.app/pages/auth/
+#### Страница настроек профиля: https://rococo-puffpuff-096482.netlify.app/settings
 
-#### Страница регистрации: https://gleeful-scone-e3f838.netlify.app/pages/register/
+#### Страница профиля: https://rococo-puffpuff-096482.netlify.app/profile
 
-#### Страница профиля: https://gleeful-scone-e3f838.netlify.app/pages/profile/
-
-#### Страница Мессенджера: https://gleeful-scone-e3f838.netlify.app/pages/messenger/ -->
+#### Страница Мессенджера: https://rococo-puffpuff-096482.netlify.app/messenger
