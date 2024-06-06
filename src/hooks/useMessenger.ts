@@ -3,10 +3,11 @@ import { render } from '../app';
 import { getFormData } from '../app/formData';
 import { Dialog, DialogUserItem } from '../components';
 import { IDialog } from '../interfaces';
-import { IMessage } from '../interfaces/IChat';
-import { IDialogItem, IDialogUserItem } from '../interfaces/IDialog';
+import { IDialogUserItem } from '../interfaces/IDialog';
 import { renderDialog } from '../pages/Messenger/Dialog';
-import { addUserToChatStore, createChatStore, deleteUserFromChatStore, getAllChatsStore, getChatsUsersStore } from '../store/messenger';
+import {
+  addUserToChatStore, createChatStore, deleteUserFromChatStore, getAllChatsStore, getChatsUsersStore,
+} from '../store/messenger';
 import { getUserStore } from '../store/user';
 import { callWSStore, createWSStore } from '../store/websocket';
 
@@ -47,7 +48,7 @@ export const useMessenger = () => {
       const { addUser } = getFormData<{ addUser: string }>(formAddToChat as HTMLFormElement);
       try {
         await addUserToChatStore([Number(addUser)], chatId);
-        const chatUsers = await getChatUsers(chatId)
+        const chatUsers = await getChatUsers(chatId);
         chatUsers.map((user: any) => {
           const userItem = new DialogUserItem<IDialogUserItem>({
             login: user.login,
@@ -55,10 +56,10 @@ export const useMessenger = () => {
             src: '../assets/delete.svg',
             events: {
               click: onDeleteFromChat(user.id, chatId),
-            }
+            },
           });
-          render<IDialogUserItem>(`.messenger-chat-list-items`, userItem);
-        })
+          render<IDialogUserItem>('.messenger-chat-list-items', userItem);
+        });
 
         alert('Пользователь добавлен в чат');
       } catch (e) {
@@ -67,7 +68,8 @@ export const useMessenger = () => {
     }
   };
   // TODO: убрать any
-  const onClickChat = (id: number, title: string) => async () => {
+  const onClickChat = (id: number, title: string) => async (e: Event) => {
+    e.preventDefault();
     const user: any = await getUserForChat();
     const token = await getChatById(id);
     const socket = await createWSStore(user.id, id, token);
@@ -95,35 +97,35 @@ export const useMessenger = () => {
     }
   };
 
-
-  const onDeleteFromChat = (userId: number, chatId: number) => async (event: Event) => {
-    const item = document.querySelector('.user-item-container');
-    const icon = document.querySelector('#delete');
+  const onDeleteFromChat = (userId: number, chatId: number) => async (e: Event) => {
+    e.preventDefault();
     const list = document.querySelector('.messenger-chat-list-items');
-    const chats = document.querySelector('.dialogs-container');
+    const form = document.querySelector('dialog-message-input') as HTMLFormElement;
     if (list) {
       list.textContent = '';
     }
     try {
-      deleteUserFromChatStore([userId], chatId)
-      const chatUsers = await getChatUsers(chatId)
-      chatUsers.map((user: any) => {
+      deleteUserFromChatStore([userId], chatId);
+
+      const chatUsers = await getChatUsers(chatId);
+      await alert('Пользователь удален из чата');
+      await chatUsers.map((user: any) => {
         const userItem = new DialogUserItem<IDialogUserItem>({
           login: user.login,
           className: 'user-item-container',
           src: '../assets/delete.svg',
           events: {
             click: onDeleteFromChat(user.id, chatId),
-          }
+          },
         });
-        render<IDialogUserItem>(`.messenger-chat-list-items`, userItem);
-      })
+        render<IDialogUserItem>('.messenger-chat-list-items', userItem);
+      });
 
-      alert('Пользователь удален из чата');
+      form.reset();
     } catch (e) {
       alert('Не удалось удалить пользователя');
     }
-  }
+  };
 
   return {
     getUserForChat,

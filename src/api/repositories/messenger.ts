@@ -21,7 +21,7 @@ export const getChatsUsers = (chatId: number) => {
     },
   }).then((data: any) => data);
   return response;
-}
+};
 
 export const getChatById = (id: number) => {
   const response = service.post(`${URL}/chats/token/${id}`, {
@@ -33,7 +33,7 @@ export const getChatById = (id: number) => {
   return response;
 };
 
-export const createChat = (title: any) => {
+export const createChat = (title: string) => {
   const response = service.post(`${URL}/chats`, {
     data: {
       title,

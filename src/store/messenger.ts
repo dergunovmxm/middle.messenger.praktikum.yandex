@@ -1,6 +1,6 @@
 import {
   addUserToChat, createChat, deleteChat, deleteUserFromChat, getAllChats, getChatById,
-  getChatsUsers
+  getChatsUsers,
 } from '../api/repositories/messenger';
 
 export const getAllChatsStore = () => getAllChats().then((chats) => chats);

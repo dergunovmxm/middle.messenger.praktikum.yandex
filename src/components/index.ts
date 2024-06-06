@@ -13,5 +13,5 @@ export {
   Link,
   Dialog,
   Image,
-  DialogUserItem
+  DialogUserItem,
 };

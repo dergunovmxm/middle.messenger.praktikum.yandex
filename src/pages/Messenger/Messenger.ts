@@ -61,7 +61,7 @@ export const Messenger = () => {
 
   const addUserInput = new Input<IInput>({
     type: 'text',
-    name: 'addUser',
+    name: 'addChat',
     inputClass: 'add-user-to-chat-input',
     placeholder: 'Введите название чата',
   });

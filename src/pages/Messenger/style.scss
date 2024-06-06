@@ -91,12 +91,14 @@ h1 {
 }
 
 .messenger-add-user {
-    display: flex;
-    
-}
 
-.dialog-search {
-    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    
+    div {
+        flex-grow: 1
+    }
 }
 
 .dialog-message-input {

@@ -1,6 +1,8 @@
 import { render } from '../../app';
 import { messageValidation } from '../../app/validation';
-import { Dialog, DialogUserItem, Input, Label } from '../../components';
+import {
+  Dialog, DialogUserItem, Input, Label,
+} from '../../components';
 import { Button } from '../../components/Button';
 import { useMessenger } from '../../hooks/useMessenger';
 import { IDialog, IInput, ILabel } from '../../interfaces';
@@ -8,7 +10,6 @@ import { IButton } from '../../interfaces/IButton';
 import { IDialogUserItem } from '../../interfaces/IDialog';
 
 export const renderDialog = (onSendMessage: () => void, title: string, onAddToChat: () => void, chatId: number) => {
-
   const { getChatUsers, onDeleteFromChat } = useMessenger();
 
   const dialogTitle = document.querySelector('.messenger-chat-title');
@@ -49,7 +50,6 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
     placeholder: 'Введите сообщение...',
     events: {
       blur: messageValidation,
-      submit: messageValidation,
     },
     eventInterception: true,
   });
@@ -103,7 +103,7 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
           },
 
         });
-        render<IDialogUserItem>(`.messenger-chat-list-items`, userItem);
+        render<IDialogUserItem>('.messenger-chat-list-items', userItem);
       });
     }
   });

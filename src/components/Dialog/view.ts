@@ -1,1 +1,1 @@
-export const view = `<span>{{ title }}</span>`;
+export const view = '<span>{{ title }}</span>';
