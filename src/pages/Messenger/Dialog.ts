@@ -1,16 +1,22 @@
 import { render } from '../../app';
 import { messageValidation } from '../../app/validation';
-import { Dialog, Input, Label } from '../../components';
+import { Dialog, DialogUserItem, Input, Label } from '../../components';
 import { Button } from '../../components/Button';
+import { useMessenger } from '../../hooks/useMessenger';
 import { IDialog, IInput, ILabel } from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
+import { IDialogUserItem } from '../../interfaces/IDialog';
 
-export const renderDialog = (onSendMessage: () => void, title: string, onAddToChat: () => void) => {
+export const renderDialog = (onSendMessage: () => void, title: string, onAddToChat: () => void, chatId: number) => {
+
+  const { getChatUsers, onDeleteFromChat } = useMessenger();
+
   const dialogTitle = document.querySelector('.messenger-chat-title');
   const messengerInput = document.querySelector('.messenger-input');
   const chatDetail = document.querySelector('.messenger-chat-detail');
   const addUser = document.querySelector('.messenger-add-user');
   const chatListTitle = document.querySelector('.messenger-chat-list-title');
+  const chatListItems = document.querySelector('.messenger-chat-list-items');
 
   if (dialogTitle) {
     dialogTitle.textContent = '';
@@ -30,6 +36,10 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
 
   if (chatListTitle) {
     chatListTitle.textContent = '';
+  }
+
+  if (chatListItems) {
+    chatListItems.textContent = '';
   }
 
   const messageInput = new Input<IInput>({
@@ -80,6 +90,24 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
     inputClass: 'dialog-message-input',
     placeholder: 'Введите id пользователя',
   });
+
+  getChatUsers(chatId).then((chatUsers) => {
+    if (chatUsers) {
+      chatUsers.map((user: any) => {
+        const userItem = new DialogUserItem<IDialogUserItem>({
+          login: user.login,
+          className: 'user-item-container',
+          src: '../assets/delete.svg',
+          events: {
+            click: onDeleteFromChat(user.id, chatId),
+          },
+
+        });
+        render<IDialogUserItem>(`.messenger-chat-list-items`, userItem);
+      });
+    }
+  });
+
   render<IInput>('.messenger-input', messageInput);
   render<IButton>('.messenger-input', sendButton);
   render<IDialog>('.messenger-chat-title', chatTitle);

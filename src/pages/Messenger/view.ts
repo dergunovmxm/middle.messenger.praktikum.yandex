@@ -11,6 +11,7 @@ export const view = `
 			</div>
 			<div class='messenger-chat-list'>
 				<div class='messenger-chat-list-title'></div>
+				<div class='messenger-chat-list-items'></div>
 			</div>
 			
 		</div>

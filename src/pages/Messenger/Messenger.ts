@@ -16,12 +16,11 @@ import { view } from './view';
 
 export const Messenger = () => {
   const root = document.querySelector('#root');
-  const { onCreateChat } = useMessenger();
   if (root) {
     root.insertAdjacentHTML('afterbegin', view);
   }
   const navbar = renderNavbar();
-  const { getChatList, onClickChat } = useMessenger();
+  const { getChatList, onClickChat, onCreateChat } = useMessenger();
 
   const title = new Title<ITitle>({
     title: 'Мессенджер',
@@ -56,7 +55,7 @@ export const Messenger = () => {
     buttonClass: 'add-user-to-chat-button',
     type: 'button',
     events: {
-      click: onCreateChat,
+      click: (e: Event) => onCreateChat(e),
     },
   });
 

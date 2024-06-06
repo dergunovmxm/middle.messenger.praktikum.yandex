@@ -1,4 +1,5 @@
 export const getFormData = <T extends object>(form: HTMLFormElement): T => {
+  console.log(form);
   if (form) {
     const formData: FormData = new FormData(form);
     const data: T = {} as T;
