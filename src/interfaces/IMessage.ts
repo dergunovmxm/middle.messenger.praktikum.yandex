@@ -19,5 +19,3 @@ export interface IDialogUser {
   role?: string
   second_name?: string
 }
-  
-  
