@@ -5,9 +5,12 @@ import {
 } from '../../components';
 import { Button } from '../../components/Button';
 import { useMessenger } from '../../hooks/useMessenger';
-import { IDialog, IInput, ILabel } from '../../interfaces';
+import {
+  IDialog, IInput, ILabel,
+} from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
 import { IDialogUserItem } from '../../interfaces/IDialog';
+import { IUser } from '../../interfaces/IUser';
 
 export const renderDialog = (onSendMessage: () => void, title: string, onAddToChat: () => void, chatId: number) => {
   const { getChatUsers, onDeleteFromChat } = useMessenger();
@@ -93,15 +96,14 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
 
   getChatUsers(chatId).then((chatUsers) => {
     if (chatUsers) {
-      chatUsers.map((user: any) => {
+      chatUsers.map((user: IUser) => {
         const userItem = new DialogUserItem<IDialogUserItem>({
-          login: user.login,
+          login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
           className: 'user-item-container',
           src: '../assets/delete.svg',
           events: {
             click: onDeleteFromChat(user.id, chatId),
           },
-
         });
         render<IDialogUserItem>('.messenger-chat-list-items', userItem);
       });

@@ -12,8 +12,8 @@ export class DialogUserItem<T extends IDialogUserItem> extends Block<IDialogUser
     const template = compile(view);
     return template({
       login: this.props.login,
-      src: this.props.src,
       className: this.props.className,
+      src: this.props.src,
       events: this.props.events,
     });
   }

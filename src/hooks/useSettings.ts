@@ -1,7 +1,7 @@
 import { changePassword } from '../api/repositories/user';
 import { getFormData } from '../app/formData';
 import { goTo } from '../app/router';
-import { IChangePassword, IUpdateUser } from '../interfaces/IUser';
+import { IChangePassword, IUpdateUser, IUser } from '../interfaces/IUser';
 import { updateAvatarStore, updateUserStore } from '../store/user';
 
 export const useSettings = () => {
@@ -32,7 +32,7 @@ export const useSettings = () => {
 
   const onChangeAvatar = async () => {
     const form = document.querySelector('form') as HTMLFormElement;
-    const data = getFormData<any>(form);
+    const data = getFormData<IUser>(form);
     const formData = new FormData();
     formData.append('avatar', data.avatar as unknown as string);
     try {

@@ -1,9 +1,11 @@
+import { format } from 'date-fns';
 import { getChatById } from '../api/repositories/messenger';
 import { render } from '../app';
 import { getFormData } from '../app/formData';
-import { Dialog, DialogUserItem, Label } from '../components';
+import { Dialog, DialogUserItem } from '../components';
+
 import { Message } from '../components/Message';
-import { IDialog, ILabel, IMessage } from '../interfaces';
+import { IDialog, IMessage } from '../interfaces';
 import { IDialogUserItem } from '../interfaces/IDialog';
 import { renderDialog } from '../pages/Messenger/Dialog';
 import {
@@ -11,6 +13,7 @@ import {
 } from '../store/messenger';
 import { getUserStore } from '../store/user';
 import { callWSStore, createWSStore } from '../store/websocket';
+import { IUser } from '../interfaces/IUser';
 
 export const useMessenger = () => {
   const formMessage = document.querySelector('.messenger-input') as HTMLFormElement;
@@ -31,8 +34,10 @@ export const useMessenger = () => {
   };
 
   const sendMessage = (socket: WebSocket) => () => {
-    const data = getFormData<any>(formMessage as HTMLFormElement);
-
+    const data = getFormData<{ message: string }>(formMessage as HTMLFormElement);
+    if (data.message === '') {
+      return;
+    }
     socket.send(JSON.stringify({
       content: data.message,
       type: 'message',
@@ -42,8 +47,11 @@ export const useMessenger = () => {
 
         mClass: 'message',
         message: data.message,
+        time: format(new Date(), 'dd.MM.yyyy HH:mm'),
       });
-      render<IMessage>(".messenger-chat-detail", message);
+      render<IMessage>('.messenger-chat-detail', message);
+      const chatDetailElement = document.querySelector('.messenger-chat-detail') as HTMLElement;
+      chatDetailElement.scrollTo(0, chatDetailElement.scrollHeight);
     } catch (e) {
       alert('Не удалось отправить сообщение');
     }
@@ -52,17 +60,19 @@ export const useMessenger = () => {
 
   const onAddToChat = (chatId: number) => async () => {
     const list = document.querySelector('.messenger-chat-list-items');
+    const form = document.querySelector('.messenger-add-user') as HTMLFormElement;
     if (list) {
       list.textContent = '';
     }
     if (formAddToChat) {
       const { addUser } = getFormData<{ addUser: string }>(formAddToChat as HTMLFormElement);
+      form?.reset();
       try {
         await addUserToChatStore([Number(addUser)], chatId);
         const chatUsers = await getChatUsers(chatId);
-        chatUsers.map((user: any) => {
+        chatUsers.map((user: IUser) => {
           const userItem = new DialogUserItem<IDialogUserItem>({
-            login: user.login,
+            login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
             className: 'user-item-container',
             src: '../assets/delete.svg',
             events: {
@@ -78,12 +88,11 @@ export const useMessenger = () => {
       }
     }
   };
-  // TODO: убрать any
-  const onClickChat = (id: number, title: string) => async (e: Event) => {
-    e.preventDefault();
-    const user: any = await getUserForChat();
+  const onClickChat = (id: number, title: string) => async () => {
+    const user: IUser | unknown = await getUserForChat();
     const token = await getChatById(id);
-    const socket = await createWSStore(user.id, id, token);
+    const userId = (user as IUser).id;
+    const socket = await createWSStore(userId, id, token);
     callWSStore(socket);
     renderDialog(sendMessage(socket), title, onAddToChat(id), id);
   };
@@ -108,21 +117,19 @@ export const useMessenger = () => {
     }
   };
 
-  const onDeleteFromChat = (userId: number, chatId: number) => async (e: Event) => {
-    e.preventDefault();
+  const onDeleteFromChat = (userId: number, chatId: number) => async () => {
     const list = document.querySelector('.messenger-chat-list-items');
-    const form = document.querySelector('dialog-message-input') as HTMLFormElement;
     if (list) {
       list.textContent = '';
     }
-    try {
-      deleteUserFromChatStore([userId], chatId);
 
+    try {
+      await deleteUserFromChatStore([userId], chatId);
+      alert('Пользователь удален из чата');
       const chatUsers = await getChatUsers(chatId);
-      await alert('Пользователь удален из чата');
-      await chatUsers.map((user: any) => {
+      chatUsers.map((user: IUser) => {
         const userItem = new DialogUserItem<IDialogUserItem>({
-          login: user.login,
+          login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
           className: 'user-item-container',
           src: '../assets/delete.svg',
           events: {
@@ -131,10 +138,8 @@ export const useMessenger = () => {
         });
         render<IDialogUserItem>('.messenger-chat-list-items', userItem);
       });
-
-      form.reset();
     } catch (e) {
-      alert('Не удалось удалить пользователя');
+      alert('Не удалось удалить пользователя из чата');
     }
   };
 

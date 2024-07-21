@@ -12,7 +12,7 @@ export interface IDialogItem {
 
 export interface IDialogUserItem {
   login: string
-  src: string
   className: string
-  events: Record<string, Function>
+  src?: string
+  events?: Record<string, Function>
 }

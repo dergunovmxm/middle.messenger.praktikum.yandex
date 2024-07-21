@@ -1,3 +1,4 @@
+import { IUser } from '../../interfaces/IUser';
 import { service } from '../fetch';
 import { URL } from '../url';
 
@@ -7,7 +8,7 @@ export const getAllChats = () => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: any) => data);
+  }).then((data: IUser[]) => data);
   return response;
 };
 
@@ -19,7 +20,7 @@ export const getChatsUsers = (chatId: number) => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: any) => data);
+  }).then((data: IUser[]) => data);
   return response;
 };
 

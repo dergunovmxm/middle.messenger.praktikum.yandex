@@ -1,5 +1,5 @@
 export interface ILabel {
-  label: string,
+  label?: string,
   labelClass: string,
   name: string,
 }

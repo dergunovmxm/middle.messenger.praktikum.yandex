@@ -16,6 +16,7 @@ import { useSettings } from '../../hooks/useSettings';
 import { useProfile } from '../../hooks/useProfile';
 import imgUrl from '../../assets/avatar.svg';
 import { URL } from '../../api/url';
+import { IUser } from '../../interfaces/IUser';
 
 export const Settings = () => {
   const { onChangeProfile, onChangeAvatar } = useSettings();
@@ -78,7 +79,7 @@ export const Settings = () => {
     },
   });
 
-  getProfile().then((user: any) => {
+  getProfile().then((user: IUser) => {
     const firstName = new Input<IInput>({
       type: 'text',
       name: 'first_name',
