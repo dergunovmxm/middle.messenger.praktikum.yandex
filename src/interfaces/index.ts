@@ -6,6 +6,7 @@ import { ILink } from './ILink';
 import { ILabel } from './ILabel';
 import { IDialog } from './IDialog';
 import { IImage } from './IImage';
+import { IMessage } from './IMessage';
 
 export {
   IOptions,
@@ -16,4 +17,5 @@ export {
   ILink,
   IDialog,
   IImage,
+  IMessage
 };

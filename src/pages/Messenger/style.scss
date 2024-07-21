@@ -48,10 +48,10 @@ h1 {
 .messenger-container {
     display: flex;
     justify-content: center;
-    padding: 24px;
+    padding: 24px 0;
 }
 
-.messenger{
+.messenger {
     width: 70%;
     border: 1px solid $primary-color;
     border-radius: 5px;
@@ -74,9 +74,10 @@ h1 {
             outline: none;
             color: $base-color;
             cursor: pointer;
-            background: none 
+            background: none
         }
     }
+
     @extend %dialog-item;
 }
 
@@ -95,7 +96,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 4px;
-    
+
     div {
         flex-grow: 1
     }
@@ -149,7 +150,7 @@ input::placeholder {
     border-bottom: 1px solid $primary-color;
 }
 
-.send-button{
+.send-button {
     margin-top: 8px;
     outline: none;
     border: none;
@@ -163,12 +164,22 @@ input::placeholder {
 
 .messenger-chat-detail {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
     height: 100%;
+    max-height: 465px;
+    overflow-y: scroll;
+    width: 100%;
 
     label {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: $base-color;
+
     }
 }
 
@@ -176,13 +187,13 @@ input::placeholder {
 
     display: flex;
     margin-bottom: 6px;
-    
+
     div {
         flex-grow: 1;
     }
 }
 
-.dialog-create :nth-child(2){
+.dialog-create :nth-child(2) {
     max-width: 80px;
 }
 
@@ -218,5 +229,13 @@ input::placeholder {
 
 .add-user-to-chat-input {
     @extend %message-input;
-   
+
+}
+
+.message {
+    padding: 8px;
+    border-radius: 10px;
+    margin: 8px 12px;
+    color: $light;
+    background-color: $base-color;
 }

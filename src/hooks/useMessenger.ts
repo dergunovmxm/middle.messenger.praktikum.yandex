@@ -1,8 +1,9 @@
 import { getChatById } from '../api/repositories/messenger';
 import { render } from '../app';
 import { getFormData } from '../app/formData';
-import { Dialog, DialogUserItem } from '../components';
-import { IDialog } from '../interfaces';
+import { Dialog, DialogUserItem, Label } from '../components';
+import { Message } from '../components/Message';
+import { IDialog, ILabel, IMessage } from '../interfaces';
 import { IDialogUserItem } from '../interfaces/IDialog';
 import { renderDialog } from '../pages/Messenger/Dialog';
 import {
@@ -31,11 +32,21 @@ export const useMessenger = () => {
 
   const sendMessage = (socket: WebSocket) => () => {
     const data = getFormData<any>(formMessage as HTMLFormElement);
-    console.log(data);
+
     socket.send(JSON.stringify({
       content: data.message,
       type: 'message',
     }));
+    try {
+      const message = new Message<IMessage>({
+
+        mClass: 'message',
+        message: data.message,
+      });
+      render<IMessage>(".messenger-chat-detail", message);
+    } catch (e) {
+      alert('Не удалось отправить сообщение');
+    }
     formMessage?.reset();
   };
 
