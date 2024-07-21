@@ -17,5 +17,5 @@ export {
   ILink,
   IDialog,
   IImage,
-  IMessage
+  IMessage,
 };
