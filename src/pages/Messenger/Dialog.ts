@@ -11,6 +11,7 @@ import {
 import { IButton } from '../../interfaces/IButton';
 import { IDialogUserItem } from '../../interfaces/IDialog';
 import { IUser } from '../../interfaces/IUser';
+import imgUrl from '../../assets/delete.svg';
 
 export const renderDialog = (onSendMessage: () => void, title: string, onAddToChat: () => void, chatId: number) => {
   const { getChatUsers, onDeleteFromChat } = useMessenger();
@@ -112,7 +113,7 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
         const userItem = new DialogUserItem<IDialogUserItem>({
           login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
           className: 'user-item-container',
-          src: '../assets/delete.svg',
+          src: imgUrl,
           events: {
             click: onDeleteFromChat(user.id, chatId),
           },

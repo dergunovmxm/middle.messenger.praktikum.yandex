@@ -3,7 +3,7 @@ import { getChatById } from '../api/repositories/messenger';
 import { render } from '../app';
 import { getFormData } from '../app/formData';
 import { Dialog, DialogUserItem } from '../components';
-
+import imgUrl from '../../assets/delete.svg';
 import { Message } from '../components/Message';
 import { IDialog, IMessage } from '../interfaces';
 import { IDialogUserItem } from '../interfaces/IDialog';
@@ -74,7 +74,7 @@ export const useMessenger = () => {
           const userItem = new DialogUserItem<IDialogUserItem>({
             login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
             className: 'user-item-container',
-            src: '../assets/delete.svg',
+            src: imgUrl,
             events: {
               click: onDeleteFromChat(user.id, chatId),
             },
@@ -131,7 +131,7 @@ export const useMessenger = () => {
         const userItem = new DialogUserItem<IDialogUserItem>({
           login: user.display_name ? user.display_name : `${user.first_name} ${user.second_name}`,
           className: 'user-item-container',
-          src: '../assets/delete.svg',
+          src: imgUrl,
           events: {
             click: onDeleteFromChat(user.id, chatId),
           },
