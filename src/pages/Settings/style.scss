@@ -1,0 +1,201 @@
+$base-color: #5b88e5;
+$primary-color: #c4c4c4;
+$light: #fff;
+
+%input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 32px;
+    box-sizing: border-box;
+    
+		label {
+        color: $base-color;
+        width: 100px;
+    }
+    
+		div {
+        width: 340px;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+#nav {
+    margin: 16px;
+}
+
+.navigation-panel {
+    display: flex;
+    margin-top: 30px;
+}
+
+.navlink {
+    text-decoration: none;
+    border: none;
+    background-color: $light;
+    color: $base-color;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.settings-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+}
+
+.settings-form {
+    box-sizing: border-box;
+    padding: 16px;
+    background-color: $primary-color;
+    width: 480px;
+    border-radius: 20px;
+}
+
+.settings-avatar {
+
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+    img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+}
+
+.change-avatar-input {
+    position: absolute;
+    left: 120px;
+	z-index: 2;
+	opacity: 0;
+	display: block;
+	width: 200px;
+	height: 20px;
+    cursor: pointer;
+}
+
+.change-avatar-button {
+    color: $light;
+    background-color: $base-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 8px 0;
+    height: 25px;
+    width: 150px;
+    border: none;
+    border-radius: 4px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 48px;
+}
+
+.file-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.settings-form-file-input[type='file'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 20px;
+    margin-left: -115px;
+}
+
+.change-avatar-label {
+    color: $base-color;
+    font-weight: bold;
+    position: relative;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+.settings-form-input {
+    outline: none;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid $base-color;
+    padding: 0 8px;
+    width: calc(100% - 32px);
+}
+
+.settings-form-label {
+	label {
+        color: $base-color;
+        width: 70px;
+    }
+}
+
+.button-container {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+		div {
+			.settings-form-button {
+            background-color: $base-color;
+            border: none;
+            outline: none;
+            width: 150px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $light;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.firstname-container {
+    @extend %input-container;
+}
+
+.secondname-container {
+    @extend %input-container;
+}
+
+.login-container {
+    @extend %input-container;
+}
+
+.email-container {
+    @extend %input-container;
+}
+
+.password-container {
+    @extend %input-container;
+}
+
+.phone-container {
+    @extend %input-container;
+}
+
+.displayname-container{
+    @extend %input-container;
+}

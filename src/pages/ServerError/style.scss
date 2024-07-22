@@ -1,0 +1,33 @@
+$base-color: #5B88E5;
+
+body {
+	margin: 0;
+}
+
+#nav {
+	padding: 16px;
+}
+
+.navigation-panel {
+	display: flex;
+	margin-top: 30px;
+}
+
+
+.navlink {
+	text-decoration: none;
+	border: none;
+	background-color: #fff;
+	color: $base-color;
+	margin: 0 8px;
+	cursor: pointer;
+}
+
+.server-error-container {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

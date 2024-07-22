@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    "scss/no-global-function-names": null,
+    "selector-class-pattern": "^([_a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/selector-no-redundant-nesting-selector": null,
+    "selector-max-id": null,
+    "color-named": null,
+    "max-nesting-depth": null,
+    "shorthand-property-no-redundant-values": null,
+    "declaration-property-value-disallowed-list": null
+  }
+}
