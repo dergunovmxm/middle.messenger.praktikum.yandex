@@ -42,7 +42,7 @@
 | Установить зависимости             | `npm install`                                                                    |
 | Сборка и запуск на localhost:3000/ | `npm run start`                                                                  |
 
-## Домен на Netlify: https://creative-lollipop-bcce61.netlify.app/
+## Домен на Netlify: https://rococo-puffpuff-096482.netlify.app//
 
 ## Страницы
 
