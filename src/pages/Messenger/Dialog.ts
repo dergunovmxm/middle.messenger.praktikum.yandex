@@ -53,6 +53,11 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
     placeholder: 'Введите сообщение...',
     events: {
       blur: messageValidation,
+      keypress: (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          onSendMessage();
+        }
+      },
     },
     eventInterception: true,
   });
@@ -92,6 +97,13 @@ export const renderDialog = (onSendMessage: () => void, title: string, onAddToCh
     name: 'addUser',
     inputClass: 'dialog-message-input',
     placeholder: 'Введите id пользователя',
+    events: {
+      keypress: (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          onAddToChat();
+        }
+      },
+    },
   });
 
   getChatUsers(chatId).then((chatUsers) => {

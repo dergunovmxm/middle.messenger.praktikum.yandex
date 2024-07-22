@@ -64,6 +64,13 @@ export const Messenger = () => {
     name: 'addChat',
     inputClass: 'add-user-to-chat-input',
     placeholder: 'Введите название чата',
+    events: {
+      keypress: (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          onCreateChat(e);
+        }
+      },
+    },
   });
 
   const userListTitle = new Label<ILabel>({
