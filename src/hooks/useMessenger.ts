@@ -3,7 +3,7 @@ import { getChatById } from '../api/repositories/messenger';
 import { render } from '../app';
 import { getFormData } from '../app/formData';
 import { Dialog, DialogUserItem } from '../components';
-import imgUrl from '../../assets/delete.svg';
+import imgUrl from '../assets/delete.svg';
 import { Message } from '../components/Message';
 import { IDialog, IMessage } from '../interfaces';
 import { IDialogUserItem } from '../interfaces/IDialog';
