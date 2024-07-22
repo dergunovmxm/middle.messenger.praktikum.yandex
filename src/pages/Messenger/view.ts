@@ -7,11 +7,11 @@ export const view = `
 				<div class='messenger-chat-title'></div>
 				
 				<div class='messenger-chat-detail'></div>
-				<form class='messenger-input'></form>
+				<form class='messenger-input' onsubmit="return false;"></form>
 			</div>
 			<div class='messenger-chat-list'>
 				<div class='messenger-chat-list-title'></div>
-				<form class='messenger-add-user'></form>
+				<form class='messenger-add-user' onsubmit="return false;"></form>
 				<div class='messenger-chat-list-items'></div>
 			</div>
 			
@@ -20,7 +20,7 @@ export const view = `
 	<div class='messenger-dialogs'>
 		<div class='dialog-title'></div>
 			<div class='dialog-search'></div>
-			<form class='dialog-create'></form>
+			<form class='dialog-create' onsubmit="return false;"></form>
 			<div class='dialogs-container'></div>
 		</div>
 	</div>
