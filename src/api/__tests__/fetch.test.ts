@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
+const { expect } = require('chai');
+const sinon = require('sinon');
 
-import { HTTPTransport } from '../fetch';
+const { HTTPTransport } = require('../fetch');
 
 describe('HTTPTransport', () => {
   let xhr: { onCreate: (req: any) => void; restore: () => void; };
