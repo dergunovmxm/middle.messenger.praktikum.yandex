@@ -19,7 +19,7 @@
         "sourceMap": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": ["src", "**/*.ts", "mochaSetup.js"],
     "exclude": ["node_modules", "coverage", "dist"]
