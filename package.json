@@ -14,8 +14,8 @@
     "lint:style": "stylelint \"src/**/*.scss\"",
     "lint": "run-p lint:*",
     "test": "mocha",
-    "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/chai": "^4.3.16",
