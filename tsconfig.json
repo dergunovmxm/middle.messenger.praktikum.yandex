@@ -2,7 +2,9 @@
     "ts-node": {
         "transpileOnly": true,
         "esm": true,
-
+        "moduleTypes": {
+            "src/**/*.ts": "cjs"
+        },
         "experimentalSpecifierResolution": "node"
     },
     "compilerOptions": {
