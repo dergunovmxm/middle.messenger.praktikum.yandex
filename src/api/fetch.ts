@@ -1,4 +1,4 @@
-import { IOptions, IRequest } from '../interfaces';
+import { IOptions } from '../interfaces';
 
 type Send = Document | XMLHttpRequestBodyInit | null | undefined;
 
@@ -19,13 +19,13 @@ function queryStringify(data: { [key: string]: { toString: () => string } }) {
     .join('&')}`;
 }
 export class HTTPTransport {
-  get: IRequest = (url: string, options: IOptions = {}) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+  get = <T>(url:string, options: IOptions & T = {} as IOptions & T) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
-  post: IRequest = (url: string, options: IOptions = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  put = <T>(url:string, options:IOptions & T = {} as IOptions & T) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-  put: IRequest = (url: string, options: IOptions = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  post = <T>(url: string, options:IOptions & T = {} as IOptions & T) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-  delete: IRequest = (url: string, options: IOptions = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  delete = <T>(url:string, options:IOptions & T = {} as IOptions & T) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
   // eslint-disable-next-line class-methods-use-this
   request = (url: string, options: { method: string; timeout?: number | undefined; data?: Object; headers?: Object }, timeout = 5000) => {

@@ -15,8 +15,10 @@
         "declaration": false,
         "module": "commonjs",
         "strictNullChecks": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node"
     },
-    "include": ["src", "**/*.ts"],
-    "exclude": ["node_modules"]
+    "include": ["src", "**/*.ts", "mochaSetup.js"],
+    "exclude": ["node_modules", "coverage", "dist"]
 }

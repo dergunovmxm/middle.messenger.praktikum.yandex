@@ -1,0 +1,6 @@
+{
+  "extension": ["ts", "js", "json", "tsx", "jsx", "scss"],
+  "loader": "ts-node/esm",
+  "spec": "src/**/*.test.ts",
+ "require": ["./mochaSetup.js"]
+}

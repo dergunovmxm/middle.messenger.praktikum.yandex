@@ -15,15 +15,22 @@
     "lint": "run-p lint:*"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^20.12.7",
+    "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
+    "chai": "^5.1.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
+    "husky": "^8.0.3",
+    "mocha": "^10.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
+    "sinon": "^18.0.0",
     "stylelint": "^16.3.1",
     "stylelint-config-sass-guidelines": "^11.1.0",
     "typescript": "^5.4.2",
@@ -33,6 +40,9 @@
   "dependencies": {
     "date-fns": "^3.6.0",
     "express": "^4.18.3",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "jsdom": "^24.1.1",
+    "mock-require": "^3.0.3",
+    "proxyquire": "^2.1.3"
   }
 }
