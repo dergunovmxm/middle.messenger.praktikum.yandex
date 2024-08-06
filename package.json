@@ -12,7 +12,9 @@
     "lint:types": "tsc --noemit",
     "lint:js": "eslint src/ --ext .ts,.tsx --fix --cache --cache-strategy metadata",
     "lint:style": "stylelint \"src/**/*.scss\"",
-    "lint": "run-p lint:*"
+    "lint": "run-p lint:*",
+    "test": "mocha",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/chai": "^4.3.16",
