@@ -9,7 +9,6 @@ import {
   IDialog, IInput, ILabel, ITitle,
 } from '../../interfaces';
 import { IButton } from '../../interfaces/IButton';
-import { IDialogItem } from '../../interfaces/IDialog';
 import { hideContent } from '../../utils/hideContent';
 import { renderNavbar } from '../../utils/renderNavbar';
 import { view } from './view';

@@ -16,7 +16,6 @@ import { useSettings } from '../../hooks/useSettings';
 import { useProfile } from '../../hooks/useProfile';
 import imgUrl from '../../assets/avatar.svg';
 import { URL } from '../../api/url';
-import { IUser } from '../../interfaces/IUser';
 
 export const Settings = () => {
   const { onChangeProfile, onChangeAvatar } = useSettings();

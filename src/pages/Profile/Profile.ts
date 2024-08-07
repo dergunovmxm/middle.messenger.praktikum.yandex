@@ -18,7 +18,6 @@ import { useProfile } from '../../hooks/useProfile';
 import { useSettings } from '../../hooks/useSettings';
 import imgUrl from '../../assets/avatar.svg';
 import { URL } from '../../api/url';
-import { IUser } from '../../interfaces/IUser';
 
 export const Profile = () => {
   const root = document.querySelector('#root');
