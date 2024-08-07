@@ -24,7 +24,7 @@
         "isolatedModules": true,
         "noEmit": true,
         "strict": true,
-        "noFallthroughCasesInSwitch": true,
+        "noFallthroughCasesInSwitch": true
     },
     "include": ["src", "mochaSetup.js", "svg.d.ts"],
     "exclude": [
