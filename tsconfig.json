@@ -1,8 +1,8 @@
 {
     "ts-node": {
-    "transpileOnly": true,
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
+        "transpileOnly": true,
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
     },
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
@@ -27,7 +27,7 @@
         "strict": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "mochaSetup.js",  "svg.d.ts"],
+    "include": ["src", "mochaSetup.js", "svg.d.ts"],
     "exclude": [
         "coverage",
         "dist"
