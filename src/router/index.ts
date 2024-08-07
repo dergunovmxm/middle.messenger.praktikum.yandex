@@ -2,13 +2,13 @@ import { selectStylesName } from '../utils/selectStyleName';
 import { Route } from './route';
 
 export class Router {
-  routes: Array<Route>;
+  routes: Array<Route> | undefined;
 
-  history: History;
+  history: History | undefined;
 
   _currentRoute?: null | Route;
 
-  _rootQuery: string;
+  _rootQuery: string | undefined;
 
   static __instance: Router;
 
@@ -38,8 +38,11 @@ export class Router {
   }
 
   use(pathname: string, block: () => { hide: () => void }) {
+    if (!this._rootQuery) {
+      throw new Error('rootQuery is not defined');
+    }
     const route = new Route(pathname, block, { rootQuery: this._rootQuery });
-    this.routes.push(route);
+    this.routes?.push(route);
     return this;
   }
 
@@ -86,7 +89,7 @@ export class Router {
   }
 
   getRoute(pathname: string): Route | undefined {
-    return this.routes.find((route) => route.match(pathname));
+    return this.routes?.find((route) => route.match(pathname));
   }
 
   public back() {
