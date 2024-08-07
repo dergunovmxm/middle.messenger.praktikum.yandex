@@ -1,4 +1,4 @@
-export interface IInput {
+export type IInput = {
   name: string,
   type: string,
   inputClass: string,
@@ -6,4 +6,4 @@ export interface IInput {
   eventInterception?: boolean
   placeholder?: string
   value?: string
-}
+};

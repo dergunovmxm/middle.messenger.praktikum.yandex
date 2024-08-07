@@ -1,18 +1,18 @@
-export interface IDialog {
+export type IDialog = {
   title: string
   className: string
   events?: Record<string, Function>
   onClick?: Function
-}
+};
 
-export interface IDialogItem {
+export type IDialogItem = {
   id: number
   title: string
-}
+};
 
-export interface IDialogUserItem {
+export type IDialogUserItem = {
   login: string
   className: string
   src?: string
   events?: Record<string, Function>
-}
+};

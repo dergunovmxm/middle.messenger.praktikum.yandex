@@ -8,7 +8,7 @@ import { IDialog } from './IDialog';
 import { IImage } from './IImage';
 import { IMessage } from './IMessage';
 
-export {
+export type {
   IOptions,
   IRequest,
   ITitle,

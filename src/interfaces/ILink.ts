@@ -1,7 +1,7 @@
-export interface ILink {
+export type ILink = {
   id: string,
   href?: string,
   link: string,
   linkClass?: string,
   events?: Object
-}
+};

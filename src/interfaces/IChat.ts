@@ -1,40 +1,40 @@
-export interface IChat {
+export type IChat = {
   id: number;
   title: string;
-}
+};
 
-export interface IGetAllChats {
+export type IGetAllChats = {
   data: {},
   headers: Record<string, string>;
-}
+};
 
-export interface IGetChatById {
+export type IGetChatById = {
   data: {},
   headers: Record<string, string>;
-}
+};
 
-export interface ICreateChat {
+export type ICreateChat = {
   data: {
     title: string
   },
   headers: Record<string, string>;
-}
+};
 
-export interface IDeleteChat {
+export type IDeleteChat = {
   data: {
     chatId: number;
   },
   headers: Record<string, string>;
-}
+};
 
-export interface IAddUserToChat {
+export type IAddUserToChat = {
   data: {
     chatId: number;
     users: number[];
   },
   headers: Record<string, string>;
-}
+};
 
-export interface IMessage {
+export type IMessage = {
   message: string;
-}
+};
