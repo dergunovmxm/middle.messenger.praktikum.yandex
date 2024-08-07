@@ -8,7 +8,7 @@ export const getAllChats = () => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: IUser[]) => data);
+  }).then((data: unknown) => data as IUser[]);
   return response;
 };
 
@@ -20,7 +20,7 @@ export const getChatsUsers = (chatId: number) => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: IUser[]) => data);
+  }).then((data: unknown) => data as IUser[]);
   return response;
 };
 
@@ -30,7 +30,10 @@ export const getChatById = (id: number) => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: { token: string }) => data.token);
+  }).then((data: unknown) => {
+    const typedData = data as { token: string };
+    return typedData.token;
+  }) as Promise<string>;
   return response;
 };
 
@@ -42,7 +45,10 @@ export const createChat = (title: string) => {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-  }).then((data: { id: number }) => data.id);
+  }).then((data: unknown) => {
+    const typedData = data as { id: number };
+    return typedData.id;
+  });
   return response;
 };
 
