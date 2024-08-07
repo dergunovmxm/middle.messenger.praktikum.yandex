@@ -27,7 +27,7 @@
         "strict": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "mochaSetup.js"],
+    "include": ["src", "mochaSetup.js",  "svg.d.ts"],
     "exclude": [
         "coverage",
         "dist"
