@@ -42,7 +42,7 @@ describe('Router', () => {
   it('should add a route correctly', () => {
     if (router) {
       router.use('/test', (() => {}) as () => { hide: () => void; });
-      expect(router.routes.length).to.equal(1);
+      expect(router.routes?.length).to.equal(1);
     }
   });
 

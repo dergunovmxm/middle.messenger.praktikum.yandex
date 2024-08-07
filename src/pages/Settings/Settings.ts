@@ -79,7 +79,7 @@ export const Settings = () => {
     },
   });
 
-  getProfile().then((user: IUser) => {
+  getProfile().then((user: any) => {
     const firstName = new Input<IInput>({
       type: 'text',
       name: 'first_name',

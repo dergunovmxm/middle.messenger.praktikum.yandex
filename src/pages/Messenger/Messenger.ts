@@ -87,7 +87,7 @@ export const Messenger = () => {
   render<IInput>('.dialog-create', addUserInput);
   render<IButton>('.dialog-create', addUserButton);
 
-  getChatList().then((chatList) => chatList.map((item: IDialogItem) => {
+  getChatList().then((chatList) => chatList.map((item: any) => {
     const dialog = new Dialog<IDialog>({
       title: item.title,
       className: 'dialog-container',

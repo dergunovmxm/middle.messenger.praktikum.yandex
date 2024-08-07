@@ -11,7 +11,7 @@ export const useAuth = () => {
       await signIn(data);
       await goTo('/messenger');
     } catch (e) {
-      const error = JSON.parse(e);
+      const error = JSON.parse(e as string);
       if (error.reason && error.reason.includes('User already in system')) {
         goTo('/messenger');
       } else {

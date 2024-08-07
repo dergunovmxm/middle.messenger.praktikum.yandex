@@ -147,7 +147,7 @@ export const Profile = () => {
     },
   });
 
-  getProfile().then((user: IUser) => {
+  getProfile().then((user: any) => {
     const firstname = new Label<ILabel>({
       name: 'firstname',
       labelClass: 'profile-value',
