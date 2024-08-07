@@ -35,7 +35,7 @@ export class Block<T extends object> {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+    eventBus.on(Block.EVENTS.FLOW_CDU, () => this._componentDidUpdate.bind(this));
   }
 
   _createResources() {
