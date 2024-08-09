@@ -1,0 +1,48 @@
+$base-color: #5b88e5;
+$primary-color: #c4c4c4;
+$light: #fff;
+
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+#nav {
+	padding: 16px;
+}
+
+a {
+	text-decoration: none;
+	color: #5B88E5;
+	margin: 0 8px;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 100px);
+}
+
+.root-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.auth-button {
+	background-color: $base-color;
+	color: $light;
+	text-decoration: none;
+	width: 120px;
+	height: 40px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+::-webkit-scrollbar {
+	width: 5px; 
+	opacity: 0;
+}

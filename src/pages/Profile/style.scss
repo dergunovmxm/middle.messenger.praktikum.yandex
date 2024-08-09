@@ -1,0 +1,212 @@
+$base-color: #5b88e5;
+$primary-color: #c4c4c4;
+$ligth: #fff;
+
+%input-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 32px;
+    box-sizing: border-box;
+    
+		label {
+        color: $base-color;
+        width: 200px;
+    }
+    
+		div {
+        width: 340px;
+    }
+}
+
+%flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+}
+
+#nav {
+    padding: 16px;
+}
+
+.navigation-panel {
+    display: flex;
+    margin-top: 30px;
+}
+
+.navlink {
+    text-decoration: none;
+    border: none;
+    background-color: #fff;
+    color: $base-color;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
+.profile-image {
+    height: 360px;
+    width: 360px;
+}
+
+.profile-container {
+    padding: 24px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    
+    img {
+        height: 240px;
+        width: 240px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+.profile-main-info {
+    background: $primary-color;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 360px;
+
+}
+
+.profile-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    height: 560px;
+}
+
+.actions {
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.profile-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: $base-color;
+    height: 32px;
+    width: 120px;
+    color: #fff;
+    margin-right: 24px;
+}
+
+.profile-button-container{
+    margin-top: 16px;
+    display: flex;
+    justify-content: start;
+}
+
+.profile-button-container:nth-child(1) {
+    margin-left: 24px;
+}
+
+.change-password-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: $base-color;
+    height: 32px;
+    width: 120px;
+    color: #fff;
+}
+
+.profile-adding-info {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 36px;
+}
+
+.profile-adding-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    border-radius: 20px;
+    background-color: $primary-color;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-form-input {
+    outline: none;
+    height: 32px;
+    width: 240px;
+    border-radius: 10px;
+    border: 1px solid $base-color;
+    padding: 0 8px;
+}
+
+.firtname {
+	label {
+        color: $ligth;
+    }
+}
+
+.secondname {
+	label {
+        color: $ligth;
+    }
+}
+
+.login {
+	label {
+        color: $ligth;
+    }
+}
+
+.email {
+	label {
+        color: $ligth;
+    }
+}
+
+.phone {
+	label {
+        color: $ligth;
+    }
+}
+
+.chat-name {
+	label {
+        color: $ligth;
+    }
+}
+
+.old-password-container {
+    @extend %input-item;
+}
+
+.new-password-container {
+    @extend %input-item;
+}
+
+.confirm-password-container {
+    @extend %input-item;
+}
