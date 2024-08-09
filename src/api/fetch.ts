@@ -74,4 +74,4 @@ export class HTTPTransport {
   };
 }
 
-export const resource = new HTTPTransport();
+export const service = new HTTPTransport();
