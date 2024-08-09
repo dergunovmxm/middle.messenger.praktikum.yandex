@@ -1,11 +1,8 @@
 import { JSDOM } from 'jsdom';
 
-const { window } = new JSDOM('<div id="root"></div>', {
-  url: 'http://localhost:3000',
-});
+const jsdom = new JSDOM('<body></body>', {});
 
-global.window = window;
-global.document = window.document;
-global.FormData = window.FormData;
-global.DocumentFragment = window.DocumentFragment;
-global.Node = window.Node;
+global.window = jsdom.window;
+global.XMLHttpRequest = jsdom.window.XMLHttpRequest;
+global.DOMParser = jsdom.window.DOMParser;
+global.document = jsdom.window.document;
